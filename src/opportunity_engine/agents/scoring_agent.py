@@ -40,14 +40,22 @@ from opportunity_engine.strategies.arbitrage import ArbitrageStrategy
 from opportunity_engine.strategies.base import DetectionStrategy
 from opportunity_engine.strategies.pain_driven import PainDrivenStrategy
 from opportunity_engine.tools.clustering import nearest_centroids
+from opportunity_engine.tools.demand_signals import (
+    DEMAND_WILLINGNESS_TO_PAY,
+    DemandAssessment,
+    classify_demand,
+    extract_demand_mentions,
+)
 from opportunity_engine.tools.feedback import RejectionPenalty, compute_rejection_penalty
 from opportunity_engine.tools.revenue_extraction import extract_revenue_mentions
+from opportunity_engine.tools.scope_classifier import ScopeAssessment, classify_scope
 from opportunity_engine.tools.scoring_tools import (
     APP_STORE_RANKING_CONFIDENCE,
     DEFAULT_MOMENTUM_CONFIG,
     DISCLOSED_REVENUE_CONFIDENCE,
     EDGAR_FUNDING_CONFIDENCE,
     EDGAR_FUNDING_WEIGHT,
+    WILLINGNESS_TO_PAY_CONFIDENCE,
     MomentumConfig,
     app_store_rank_weight,
     compute_composite_score,
@@ -56,6 +64,7 @@ from opportunity_engine.tools.scoring_tools import (
     evaluate_buildability,
     evaluate_vendability,
     revenue_weight_for_monthly_amount,
+    willingness_to_pay_weight,
 )
 
 logger = logging.getLogger(__name__)
@@ -124,10 +133,14 @@ def run_scoring(
         momentum = compute_momentum(channel_series, today, momentum_cfg)
         proof_events = _load_proof_events(conn, opportunity_id)
         market_proof_score = compute_market_proof(proof_events, today)
+        scope = classify_scope(evidence.text)
+        demand = classify_demand(evidence.text)
 
         overall_pass = strategy_eval.accepted and buildability.passed and vendability.passed
         composite_score = (
-            compute_composite_score(momentum, market_proof_score) if overall_pass else None
+            compute_composite_score(momentum, market_proof_score, scope, demand)
+            if overall_pass
+            else None
         )
         barrier_pass = (
             strategy_eval.accepted if primary_strategy == DetectionStrategyName.ARBITRAGE else None
@@ -170,6 +183,8 @@ def run_scoring(
             strategy=primary_strategy,
             evidence=evidence,
             rejection_penalty=rejection_penalty,
+            scope=scope,
+            demand=demand,
         )
         conn.commit()
 
@@ -416,6 +431,32 @@ def _sync_proof_events(conn: psycopg.Connection[Any], opportunity_id: int, clock
                     observed_at,
                     {"monthly_amount_usd": best.monthly_amount_usd, "raw_match": best.raw_match},
                 )
+            # A separate, additional proof_event, not mutually exclusive with
+            # disclosed_revenue above -- a post can both report revenue and
+            # separately state willingness to pay (e.g. in a comment thread).
+            willingness_mentions = [
+                m
+                for m in extract_demand_mentions(text)
+                if m.demand_type == DEMAND_WILLINGNESS_TO_PAY
+            ]
+            if willingness_mentions:
+                best_willingness = max(
+                    willingness_mentions,
+                    key=lambda m: m.monthly_amount_usd if m.monthly_amount_usd is not None else -1,
+                )
+                _insert_proof_event(
+                    conn,
+                    opportunity_id,
+                    raw_document_id,
+                    "willingness_to_pay",
+                    willingness_to_pay_weight(best_willingness.monthly_amount_usd),
+                    WILLINGNESS_TO_PAY_CONFIDENCE,
+                    observed_at,
+                    {
+                        "monthly_amount_usd": best_willingness.monthly_amount_usd,
+                        "raw_match": best_willingness.raw_match,
+                    },
+                )
         elif doc_type == "app_store_ranking":
             rank = raw_json.get("rank")
             if rank is not None:
@@ -567,6 +608,8 @@ def _write_score_history(
     strategy: DetectionStrategyName,
     evidence: CandidateEvidence,
     rejection_penalty: RejectionPenalty,
+    scope: ScopeAssessment,
+    demand: DemandAssessment,
 ) -> None:
     inputs_snapshot = {
         "text_excerpt": evidence.text[:500],
@@ -576,6 +619,12 @@ def _write_score_history(
         "distinct_source_count": evidence.distinct_source_count,
         "rejection_penalty_points": rejection_penalty.points,
         "rejection_penalty_neighbors": rejection_penalty.contributing_neighbors,
+        "scope_score": scope.score,
+        "scope_narrow_matches": scope.narrow_matches,
+        "scope_broad_matches": scope.broad_matches,
+        "scope_integration_count": scope.integration_count,
+        "demand_score": demand.score,
+        "demand_matched_types": demand.matched_types,
     }
     conn.execute(
         """

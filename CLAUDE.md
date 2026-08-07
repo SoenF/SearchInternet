@@ -10,6 +10,23 @@ Manager, Exit Manager) are not built yet and are out of scope here — this
 codebase only owes them clean extension points (see "Out of scope" below),
 not pre-built infrastructure.
 
+## `products/` — built products, not part of the engine
+
+`products/` holds actual SaaS products picked from the engine's own backlog
+output and built to sell — the portfolio this engine exists to feed, starting
+to take shape. Each is a fully separate codebase (own `pyproject.toml`, own
+deps, own tests) living here only for monorepo convenience. None of the
+non-negotiable architecture rules below apply to them — they're regular
+product code, not the opportunity-detection engine. See each product's own
+`README.md` for what it is and its own grounding evidence.
+
+- `products/facebook-leads-make-connector/` — a reliability layer fixing two
+  real, current Facebook Lead Ads → Make.com integration failures (variable
+  per-form field mapping, and a Graph API lead-retrieval permission bug),
+  sourced from the engine's `discourse_forums` connector. Started
+  2026-08-07; see its `docs/root_cause_notes.md` for the two real community
+  threads this is grounded in.
+
 ## Phase status
 
 All five phases from the original spec are now implemented:
@@ -288,6 +305,54 @@ genre categories) because Phase 1-2 makes zero LLM calls. In particular:
   history; "we don't know its momentum yet" is not the same claim as "it has
   no momentum," and the two must not score the same. Momentum still applies
   its full weight once real history exists.
+- `tools/scope_classifier.py` (added 2026-08-07) is a keyword heuristic —
+  narrow-scope words ("extension", "plugin", "cli", ...), broad-scope words
+  ("platform", "all-in-one", "ecosystem", ...), and a count of named cloud/
+  SaaS providers mentioned together (≥3 is itself a scope signal,
+  independent of adjectives — verified against this project's own real
+  data, a Product Hunt pitch naming six providers in one sentence) — that
+  nudges `compute_composite_score` by up to `COMPOSITE_SCOPE_WEIGHT` (15
+  points) toward narrow, solo-buildable ideas and away from full platforms.
+  Deliberately a nudge, not a dominant factor: verified live against
+  production data that it correctly boosts genuinely narrow pain_driven
+  ideas (Chrome extensions, CLIs, calculators) by the intended amount, but
+  15 points is nowhere near enough to outrank App Store arbitrage entries,
+  whose market-proof scores structurally run far higher. If the goal is an
+  automated top-20 that doesn't need hand-curation to remove full-platform
+  arbitrage picks, the next lever is `tools/ranking.py`'s diversity/quota
+  mechanism, not a bigger scope weight here — don't chase this by inflating
+  `COMPOSITE_SCOPE_WEIGHT` without evidence it's the right lever.
+- `tools/competitor_search.py:build_search_query` (fixed 2026-08-07) prefers
+  a tagline (first line of a linked document's body) over the bare title,
+  and strips dollar amounts/MRR-ARR jargon/HN narration words. Fixed after
+  finding on real production data that a made-up brand name alone
+  ("CloudQuell") searches as 0 matches (not "no competitors," just "nothing
+  to search for"), and an HN title containing "$17K to $170K MRR" pulled in
+  noise unrelated to the actual product.
+- `tools/demand_signals.py` (added 2026-08-07) is a regex phrase-matcher —
+  same zero-LLM, zero-ML philosophy as every other Phase 1-2 heuristic —
+  detecting when evidence text *explicitly asks for something to exist*
+  ("I wish there was...", "is there a tool for...", "alternative to X",
+  "doesn't support Y") rather than merely getting attention. This is a
+  different claim than momentum ("attention is growing") and nudges
+  `compute_composite_score` by up to `COMPOSITE_DEMAND_WEIGHT` (20 points),
+  same additive-nudge pattern as `scope_classifier.py`. Willingness-to-pay
+  phrases ("I'd pay $50/mo for this") are deliberately excluded from this
+  nudge's own score — they're a monetary claim, so they feed `proof_events`/
+  market proof instead (see `agents/scoring_agent.py:_sync_proof_events`),
+  the same bucket as disclosed revenue, rather than being double-counted
+  across two scoring channels for one piece of evidence.
+- `collectors/github_issues.py`'s default search query adds `comments:>0`
+  (fixed 2026-08-07) after finding on real ingested data that most open,
+  enhancement-labeled issues with zero comments are repo maintenance or
+  AI-coding-agent busywork, not real user requests — verified live that
+  this one qualifier drops matching volume by roughly three orders of
+  magnitude for a single day's window. Honestly incomplete: a one-off
+  self-reply still passes, and it's a precision/recall trade, not a fix —
+  see the module's own docstring for why `reactions:>N` (a stronger quality
+  signal) isn't the default despite being stronger: a freshly created issue
+  hasn't had time to accumulate reactions the way an older one has, so it
+  trades badly against this connector's daily incremental ingestion window.
 
 ## Environment variables
 

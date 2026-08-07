@@ -90,16 +90,21 @@ def run_competitor_check(
 
     rows = conn.execute(
         """
-        SELECT id, title FROM opportunities
-        WHERE competitor_checked_at IS NULL AND status IN ('candidate', 'qualified')
-        ORDER BY current_score DESC NULLS LAST
+        SELECT o.id, o.title,
+               (SELECT rd.body FROM opportunity_sources os JOIN raw_documents rd ON rd.id = os.raw_document_id
+                WHERE os.opportunity_id = o.id AND rd.body IS NOT NULL
+                ORDER BY length(rd.body) DESC LIMIT 1) AS body
+        FROM opportunities o
+        WHERE o.competitor_checked_at IS NULL AND o.status IN ('candidate', 'qualified')
+        ORDER BY o.current_score DESC NULLS LAST
         LIMIT %s
         """,
         (batch_size,),
     ).fetchall()
 
-    for opportunity_id, title in rows:
-        query = build_search_query(title)
+    for opportunity_id, title, body in rows:
+        tagline = body.split("\n", 1)[0] if body else None
+        query = build_search_query(title, tagline)
         github_matches: list[CompetitorMatch] = []
         npm_matches: list[CompetitorMatch] = []
         github_total = 0

@@ -20,7 +20,13 @@ DEFAULT_REDDIT_SUBREDDITS: frozenset[str] = frozenset(
     {"SaaS", "Entrepreneur", "smallbusiness", "SideProject"}
 )
 DEFAULT_STACKEXCHANGE_SITES: frozenset[str] = frozenset({"softwarerecs"})
-DEFAULT_GITHUB_SEARCH_QUERY = "is:issue is:open label:enhancement"
+# `comments:>0` (added 2026-08-07) cuts out the worst of the noise found in
+# real ingested data: verified live that adding this one qualifier drops
+# matching volume by roughly three orders of magnitude for a single day's
+# window while keeping genuine early-stage requests. See
+# collectors/github_issues.py's module docstring for what this does and
+# doesn't filter, and how to trade it for a stronger `reactions:>N` bar.
+DEFAULT_GITHUB_SEARCH_QUERY = "is:issue is:open label:enhancement comments:>0"
 DEFAULT_DISCOURSE_FORUMS: tuple[str, ...] = ("forum.bubble.io", "community.make.com")
 
 

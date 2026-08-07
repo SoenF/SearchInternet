@@ -5,6 +5,24 @@ unauthenticated (10 requests/min); a personal access token
 (GITHUB_TOKEN, self-service, instant, no approval process) raises that to 30
 requests/min for the search endpoint specifically. Enabled by default, like
 StackExchangeCollector -- no credential is required, only recommended.
+
+The default query adds `comments:>0` (see config.py's
+DEFAULT_GITHUB_SEARCH_QUERY) to cut the worst of the noise: verified live
+that most open, enhancement-labeled issues with zero comments are repo
+maintenance or AI-coding-agent busywork, not real user requests. This is a
+precision/recall trade, not a fix -- a one-off self-reply still passes, and
+raising the bar further trades recall for precision differently depending
+on which qualifier you add:
+- `comments:>N` for higher N -- cheap, but a genuinely good early request
+  can still have zero replies; this mostly filters engagement, not quality.
+- `reactions:>N` -- stronger quality signal (a thumbs-up costs nothing, so
+  it's a weaker filter than a comment, but accumulating several takes time.
+  This is why it's NOT the default here: a freshly created issue (this
+  connector's own incremental `created:{since}..{until}` window is usually
+  a single day) hasn't had time to accumulate reactions the way an older,
+  already-discovered issue has. Combine it with a wider `created:` window
+  (i.e. run this collector less often, e.g. weekly with a 7-day window) if
+  you want fewer, more-proven results and don't need daily freshness.
 """
 
 from __future__ import annotations

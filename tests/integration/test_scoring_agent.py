@@ -276,6 +276,38 @@ def test_disclosed_revenue_extracted_from_hn_text_produces_proof_event(
     assert extracted_value["monthly_amount_usd"] == 8000.0
 
 
+def test_willingness_to_pay_extracted_from_hn_text_produces_proof_event(
+    db_conn: psycopg.Connection[Any],
+) -> None:
+    opportunity_id = _insert_opportunity(db_conn, strategy="pain_driven")
+    _link_document(
+        db_conn,
+        opportunity_id,
+        connector_name="hackernews_algolia",
+        external_id="1",
+        doc_type="hn_ask",
+        title="Ask HN: is there a tool for invoice reconciliation?",
+        body="I would pay $50 for something that did this well.",
+        published_at=AS_OF,
+    )
+    db_conn.commit()
+
+    run_scoring(db_conn, clock=fixed_clock(AS_OF))
+
+    proof_type, extracted_value = db_conn.execute(
+        "SELECT proof_type, extracted_value FROM proof_events WHERE opportunity_id = %s",
+        (opportunity_id,),
+    ).fetchone()
+    assert proof_type == "willingness_to_pay"
+    assert extracted_value["monthly_amount_usd"] == 50.0
+
+    inputs_snapshot = db_conn.execute(
+        "SELECT inputs_snapshot FROM score_history WHERE opportunity_id = %s", (opportunity_id,)
+    ).fetchone()[0]
+    assert inputs_snapshot["demand_score"] == 0.6
+    assert inputs_snapshot["demand_matched_types"] == ["explicit_demand_request"]
+
+
 def test_momentum_reaches_ok_confidence_once_baseline_history_exists(
     db_conn: psycopg.Connection[Any],
 ) -> None:

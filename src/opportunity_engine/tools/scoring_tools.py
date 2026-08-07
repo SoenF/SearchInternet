@@ -18,7 +18,9 @@ from opportunity_engine.domain.models import (
     MomentumResult,
     ProofEvent,
 )
+from opportunity_engine.tools.demand_signals import DemandAssessment
 from opportunity_engine.tools.regulatory import classify_regulatory_risk
+from opportunity_engine.tools.scope_classifier import COMPOSITE_SCOPE_WEIGHT, ScopeAssessment
 
 
 @dataclass(frozen=True)
@@ -118,6 +120,7 @@ PROOF_HALF_LIFE_DAYS: dict[str, int] = {
     "edgar_funding": 365,
     "disclosed_revenue": 180,
     "app_store_ranking": 30,
+    "willingness_to_pay": 120,
 }
 _DEFAULT_HALF_LIFE_DAYS = 90
 
@@ -126,6 +129,7 @@ EDGAR_FUNDING_CONFIDENCE = 1.0  # an official filing, not a claim
 
 DISCLOSED_REVENUE_CONFIDENCE = 0.6  # self-reported on a public forum, unverified
 APP_STORE_RANKING_CONFIDENCE = 0.8  # observed directly, but ranking != revenue
+WILLINGNESS_TO_PAY_CONFIDENCE = 0.6  # self-reported and prospective, not realized revenue
 
 
 def revenue_weight_for_monthly_amount(monthly_amount_usd: float) -> float:
@@ -134,6 +138,17 @@ def revenue_weight_for_monthly_amount(monthly_amount_usd: float) -> float:
     if monthly_amount_usd >= 1_000:
         return 70.0
     return 40.0
+
+
+def willingness_to_pay_weight(monthly_amount_usd: float | None) -> float:
+    """Lower than the equivalent revenue_weight_for_monthly_amount tier --
+    someone stating they *would* pay is weaker evidence than someone who
+    already *is* paying, even at the same dollar figure."""
+    if monthly_amount_usd is None:
+        return 20.0  # stated willingness, no amount attached
+    if monthly_amount_usd >= 50:
+        return 45.0
+    return 30.0
 
 
 def app_store_rank_weight(rank: int) -> float:
@@ -306,9 +321,15 @@ def is_personal_brand_only_source(source_domain: str | None) -> bool:
 
 COMPOSITE_MOMENTUM_WEIGHT = 0.5
 COMPOSITE_MARKET_PROOF_WEIGHT = 0.5
+COMPOSITE_DEMAND_WEIGHT = 20.0
 
 
-def compute_composite_score(momentum: MomentumResult, market_proof_score: float) -> float:
+def compute_composite_score(
+    momentum: MomentumResult,
+    market_proof_score: float,
+    scope: ScopeAssessment | None = None,
+    demand: DemandAssessment | None = None,
+) -> float:
     """Combines the two weighted dimensions into the ranking score. The
     50/50 split is a documented starting point, not a value mandated by the
     spec (which specifies momentum and market proof as "weighted" without a
@@ -325,10 +346,29 @@ def compute_composite_score(momentum: MomentumResult, market_proof_score: float)
     highly -- momentum still matters once real history exists (an
     opportunity actively growing should outrank an identical flat one), but
     "we don't know yet" is not the same claim as "no growth", and must not
-    be scored as if it were."""
+    be scored as if it were.
+
+    `scope` (see tools/scope_classifier.py) and `demand` (see
+    tools/demand_signals.py) are both optional nudges, not dimensions of
+    their own. `scope` distinguishes a single-feature tool from a full
+    platform with equally strong evidence -- momentum and market proof
+    alone don't, which structurally under-ranks the ideas most realistic
+    for a solo Claude-Code-driven build. `demand` distinguishes an
+    opportunity someone explicitly asked to exist ("I wish there was a
+    tool for X") from one merely mentioned in passing -- a different claim
+    than momentum's "attention is growing." The result can go negative
+    before the caller's own floor-at-0 (see agents/scoring_agent.py) --
+    that's intentional, not a bug: a weak idea should be able to reach the
+    floor regardless of which nudge pushed it there."""
     if momentum.confidence == MomentumConfidence.INSUFFICIENT_HISTORY:
-        return market_proof_score
-    return (
-        momentum.score * COMPOSITE_MOMENTUM_WEIGHT
-        + market_proof_score * COMPOSITE_MARKET_PROOF_WEIGHT
-    )
+        base = market_proof_score
+    else:
+        base = (
+            momentum.score * COMPOSITE_MOMENTUM_WEIGHT
+            + market_proof_score * COMPOSITE_MARKET_PROOF_WEIGHT
+        )
+    if scope is not None:
+        base += scope.score * COMPOSITE_SCOPE_WEIGHT
+    if demand is not None:
+        base += demand.score * COMPOSITE_DEMAND_WEIGHT
+    return base
