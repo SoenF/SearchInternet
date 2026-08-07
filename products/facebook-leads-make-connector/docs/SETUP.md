@@ -44,6 +44,16 @@ Alternatives if cost matters more than dashboard simplicity:
 Whichever you pick, no host was chosen or paid for on your behalf — this is
 the concrete recommendation, not an action taken.
 
+**Hosting more than one product on Render.** One Render account/workspace
+holds many independent services, not just this one — each product in the
+portfolio gets its own Web Service (own repo, own Dockerfile, own env vars,
+own disk), billed separately for compute. The free **Hobby** workspace tier
+covers up to 25 services at no workspace fee; you only pay per service you
+actually run always-on (~$7/mo Starter each, so 5 products ≈ $35/mo total,
+not a shared/discounted bundle). You'd only need the paid **Pro** workspace
+($25/mo flat) for team seats or higher limits — not something a single
+operator running under 25 services needs yet.
+
 ```
 docker build -t leadbridge .
 docker run -p 8000:8000 --env-file .env leadbridge
@@ -97,3 +107,11 @@ Nothing here creates an account, publishes a page, or takes payment on your
 behalf. `landing/index.html` is a draft you can publish yourself (Gumroad
 product page, or host it and link a Stripe Payment Link) whenever you're
 ready.
+
+## 7. Promoting it without fighting API keys
+
+See `docs/marketing_ops_strategy.md` for the full comparison. Short version:
+connect Buffer's official MCP server (`claude mcp add --transport http
+buffer https://mcp.buffer.com/mcp`, OAuth sign-in, no API key, free tier
+included) and a Claude Code session can draft/schedule/post across every
+platform you connect in Buffer — no per-platform developer app needed.
