@@ -25,11 +25,15 @@ different:
 
 - **The Make.com community forum itself** — highest intent of anything on
   this list: it's literally where the two threads this product is built
-  from came from. Not a "social account" and not something Buffer
-  manages — it's a normal forum account, and most communities have
-  self-promotion norms (disclose you built it, don't drop a link with no
-  context) worth reading before posting, same spirit as respecting a
-  platform's ToS elsewhere in this project.
+  from came from. **Buffer cannot post here** — checked its actual channel
+  list (X, LinkedIn, Instagram, Facebook, TikTok, YouTube Shorts,
+  Pinterest, Google Business Profile, Mastodon, Threads); Discourse-based
+  forums aren't and likely won't be on it, since Buffer's whole model is
+  scheduled broadcast posts, not threaded community replies. This is the
+  right split, not a gap: an auto-scheduled forum reply would read as spam
+  and undercut exactly the credibility that makes this channel worth
+  bothering with. Post here manually, as yourself, in the actual threads —
+  disclose you built it, don't drop a bare link with no context.
 - **LinkedIn** — real fit. This is where marketing-ops people, no-code
   agency owners, and consultants managing client ad accounts actually are.
   Primary channel.
