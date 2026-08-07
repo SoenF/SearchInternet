@@ -101,12 +101,37 @@ Facebook Business Manager + Page + Make account to do — the first time you
 Ads Testing Tool and confirm it lands correctly in Make before considering
 setup finished.
 
-## 6. Selling it (only once you decide to)
+## 6. Selling it with Stripe (only once you decide to)
 
 Nothing here creates an account, publishes a page, or takes payment on your
-behalf. `landing/index.html` is a draft you can publish yourself (Gumroad
-product page, or host it and link a Stripe Payment Link) whenever you're
-ready.
+behalf — Stripe requires you to sign up and configure this yourself.
+
+1. Create a Stripe account (stripe.com) if you don't have one, and complete
+   its identity/business verification — required before any live payment
+   link can accept real money.
+2. Dashboard → **Payment links** → **Create payment link**. No code needed
+   for this part:
+   - Product: "LeadBridge for Make", one-time price (the landing page's
+     current placeholder is $129 — change it there too if you set a
+     different price).
+   - Under "After payment," set a custom confirmation page URL pointing at
+     `landing/thank-you.html` (also drafted, matches the landing page's
+     design) instead of Stripe's generic default.
+3. **Fulfillment, for now: manual.** Stripe will email you (and show in the
+   dashboard) every completed payment. At this volume — the first sales of
+   a new product — replying to the buyer with the private repo link or a
+   zip takes a couple of minutes and is standard practice; it is not worth
+   building an automated delivery pipeline before there's a single sale to
+   justify it. `thank-you.html` tells the buyer to expect that email.
+4. **VAT/tax, read before going live**: unlike Gumroad, Stripe does **not**
+   act as merchant of record by default — you (not Stripe) stay responsible
+   for VAT on digital sales, including the EU's One-Stop-Shop rules for
+   digital goods sold to consumers. Stripe Tax is an opt-in add-on that
+   helps calculate/collect it, but registration is still on you. This isn't
+   something to guess at — worth a short conversation with an accountant
+   before your first real sale, not after.
+5. Once you have the real Payment Link URL, send it over and I'll wire it
+   into `landing/index.html`'s two "Buy" buttons (currently placeholders).
 
 ## 7. Promoting it without fighting API keys
 

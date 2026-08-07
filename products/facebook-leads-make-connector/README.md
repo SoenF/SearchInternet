@@ -40,8 +40,9 @@ convenient monorepo location — different dependencies, different tests, differ
 See `docs/SETUP.md`'s final checklist. In short: a real Facebook App + Page +
 long-lived Page Access Token, a hosting deploy (Render/Fly/Docker anywhere),
 a Make.com account to build the one downstream scenario, and — only once you
-decide to sell it — a Gumroad or Stripe payment link. None of these were
-created on your behalf; none require code changes to set up.
+decide to sell it — a Stripe account and Payment Link (see `docs/SETUP.md`
+§6, including the VAT/merchant-of-record caveat before going live). None of
+these were created on your behalf; none require code changes to set up.
 
 ## Running it locally
 
