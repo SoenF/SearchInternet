@@ -24,9 +24,25 @@ this is the exact sequence to do it.
 
 ## 2. Deploy the service
 
-Any host that runs a Docker container or a plain ASGI app works — Render,
-Fly.io, Railway, a $5/mo VPS. No specific provider is required or was chosen
-for you.
+This has to be **always-on**, not scale-to-zero: Facebook expects a fast ACK
+on every webhook delivery and can eventually disable a subscription that's
+consistently unreachable. That rules out free/sleep-on-idle tiers.
+
+**Recommended: Render, Starter plan (~$7/mo).** Connect the GitHub repo,
+point it at this directory's `Dockerfile`, add a small (~1GB, ~$1/mo)
+persistent disk mounted at `/app/data` for the SQLite dedup file, set the
+env vars from `.env.example` in the dashboard. No CLI, no manual TLS setup.
+
+Alternatives if cost matters more than dashboard simplicity:
+- **Fly.io** (~$10-20/mo all-in with a volume) — `fly launch` reads the
+  Dockerfile directly; CLI-first, and 2026 reports flag volume/snapshot
+  billing as easy to get wrong, so read `fly.io/docs/about/pricing` before
+  committing.
+- **A $5/mo VPS** (Hetzner, DigitalOcean) — cheapest, but you're now also
+  responsible for TLS (e.g. Caddy) and process supervision yourself.
+
+Whichever you pick, no host was chosen or paid for on your behalf — this is
+the concrete recommendation, not an action taken.
 
 ```
 docker build -t leadbridge .
