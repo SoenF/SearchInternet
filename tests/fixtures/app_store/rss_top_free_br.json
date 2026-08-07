@@ -1,0 +1,519 @@
+{
+    "feed": {
+        "author": {
+            "name": {
+                "label": "iTunes Store"
+            },
+            "uri": {
+                "label": "http://www.apple.com/br/itunes/"
+            }
+        },
+        "entry": [
+            {
+                "im:name": {
+                    "label": "ChatGPT"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/2d/ef/592defc8-04d3-4d04-b5c0-2205f1fa0121/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/2d/ef/592defc8-04d3-4d04-b5c0-2205f1fa0121/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/2d/ef/592defc8-04d3-4d04-b5c0-2205f1fa0121/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "Apresentando o ChatGPT para iOS: os avan\u00e7os mais recentes da OpenAI ao seu alcance.\n\nEste aplicativo oficial \u00e9 gratuito, sincroniza seu hist\u00f3rico entre dispositivos e traz as novidades da OpenAI, incluindo o novo gerador de imagens.\n\nCom o ChatGPT no seu bolso, voc\u00ea terpa:\n\n\u00b7 Gera\u00e7\u00e3o de imagens \u2013 Crie imagens originais a partir de uma descri\u00e7\u00e3o ou transforme imagens existentes com poucas palavras.  \n\u00b7 Modo de voz avan\u00e7ado \u2013 Toque no \u00edcone de ondas sonoras para ter uma conversa em tempo real onde estiver. Resolva um debate \u00e0 mesa ou pratique um novo idioma.  \n\u00b7 Upload de fotos \u2013 Tire ou envie uma foto para transcrever uma receita escrita \u00e0 m\u00e3o ou conseguir informa\u00e7\u00f5es sobre um ponto tur\u00edstico.  \n\u00b7 Inspira\u00e7\u00e3o criativa \u2013 Encontre ideias personalizadas de presente de anivers\u00e1rio ou crie um cart\u00e3o de felicita\u00e7\u00f5es \u00fanico.  \n\u00b7 Conselhos personalizados \u2013 Converse sobre uma situa\u00e7\u00e3o dif\u00edcil, pe\u00e7a um roteiro de viagem detalhado ou receba ajuda para escrever a resposta perfeita.  \n\u00b7 Aprendizado personalizado \u2013 Explique eletricidade para uma crian\u00e7a que ama dinossauros ou revise facilmente um evento hist\u00f3rico.  \n\u00b7 Opini\u00e3o profissional \u2013 Fa\u00e7a um brainstorming de textos de marketing ou elabore um plano de neg\u00f3cios.  \n\u00b7 Respostas instant\u00e2neas \u2013 Receba sugest\u00f5es de receitas com apenas alguns ingredientes.\n\nJunte-se a centenas de milh\u00f5es de usu\u00e1rios e experimente o app que est\u00e1 encantando o mundo. Baixe o ChatGPT hoje.\n\nTermos de uso e pol\u00edtica de privacidade:  \nhttps://openai.com/policies/terms-of-use  \nhttps://openai.com/policies/privacy-policy"
+                },
+                "im:price": {
+                    "label": "Obter",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "BRL"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Aplicativo"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 2026 OpenAI OpCo L.L.C."
+                },
+                "title": {
+                    "label": "ChatGPT - OpenAI OpCo, LLC"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/br/app/chatgpt/id6448311069?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Pr\u00e9via",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/89/68/fa/8968fa07-ad60-ccba-d775-91af6c493ab1/1_iPad.jpg/1024x1024bb.jpg",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/br/app/chatgpt/id6448311069?uo=2",
+                    "attributes": {
+                        "im:id": "6448311069",
+                        "im:bundleId": "com.openai.chat"
+                    }
+                },
+                "im:artist": {
+                    "label": "OpenAI OpCo, LLC",
+                    "attributes": {
+                        "href": "https://apps.apple.com/br/developer/openai-opco-llc/id1684349733?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6007",
+                        "term": "Productivity",
+                        "scheme": "https://apps.apple.com/br/genre/ios-produtividade/id6007?uo=2",
+                        "label": "Produtividade"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2023-05-25T00:00:00-07:00",
+                    "attributes": {
+                        "label": "25/05/2023"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "Mercado Livre: DIA DOS PAIS"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/77/83/757783fa-38ab-2d7f-3512-942aba95f54e/iOS_DD_8_8-0-0-1x_U007emarketing-0-6-0-0-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/77/83/757783fa-38ab-2d7f-3512-942aba95f54e/iOS_DD_8_8-0-0-1x_U007emarketing-0-6-0-0-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/77/83/757783fa-38ab-2d7f-3512-942aba95f54e/iOS_DD_8_8-0-0-1x_U007emarketing-0-6-0-0-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "OS MELHORES PRODUTOS E MARCAS PARA O DIA DOS PAIS\nAproveite as ofertas do Dia dos Pais no Mercado Livre, com as melhores ofertas para voc\u00ea!\nO evento mais esperado chegou! No 8.8 do Mercado Livre, voc\u00ea encontra cupons de at\u00e9 70% de desconto e as melhores ofertas em tudo o que precisa.\nCompre online com frete gr\u00e1tis a partir de R$ 19 e entrega em menos de 24h em milh\u00f5es de produtos selecionados. Viva a melhor experi\u00eancia de compra no app mais completo e r\u00e1pido do Brasil.\nExplore nosso cat\u00e1logo exclusivo e aproveite as melhores vantagens em todas as categorias:\nTecnologia e eletr\u00f4nicos: Celulares de \u00faltima gera\u00e7\u00e3o, inform\u00e1tica, Smart TVs e os videogames mais desejados est\u00e3o com cupons exclusivos no 8.8. Aproveite!\nModa e Acess\u00f3rios: Renove seu estilo com as melhores marcas de roupas, cal\u00e7ados e bolsas com pre\u00e7os especiais.\nCasa e Bem-estar: M\u00f3veis, decora\u00e7\u00e3o, eletrodom\u00e9sticos e produtos de beleza com descontos que voc\u00ea s\u00f3 encontra na Liquida 8.8.\nAutomotivo: Tudo em autope\u00e7as, pneus e acess\u00f3rios para o seu ve\u00edculo com as melhores condi\u00e7\u00f5es de parcelamento.\nVANTAGENS DE COMPRAR DURANTE O 8.8 DO MERCADO LIVRE!\nMelhores ofertas: Ative seus c\u00f3digos promocionais direto no app e economize ainda mais.\n Entrega em menos de 24h: N\u00e3o espere! Receba suas compras com a log\u00edstica mais r\u00e1pida do Brasil. Frete gr\u00e1tis a partir de R$ 19.\nCompra Garantida: Receba o produto que est\u00e1 esperando ou devolvemos o seu dinheiro.\nO app do Mercado Livre permite filtrar por pre\u00e7o, localiza\u00e7\u00e3o e reputa\u00e7\u00e3o, garantindo que voc\u00ea encontre sempre os melhores produtos com total seguran\u00e7a.\nAproveite as ofertas e cupons exclusivos, o frete r\u00e1pido e a experi\u00eancia que milh\u00f5es de usu\u00e1rios j\u00e1 aprovam. Tudo no Mercado Livre!\nMAIS QUE UM APP DE COMPRAS\nNo Mercado Livre voc\u00ea n\u00e3o s\u00f3 encontra o que procura: transformamos a sua forma de lidar com o dinheiro e de curtir entretenimento com streaming gratuito.\nMERCADO PAGO: SEGURAN\u00c7A NAS SUAS COMPRAS E FINAN\u00c7AS\nCuide do seu dinheiro com a seguran\u00e7a do Mercado Pago, a conta digital mais completa da regi\u00e3o. Pague online com total seguran\u00e7a, fa\u00e7a Pix em segundos, parcele suas compras e otimize o seu tempo.\nMERCADO PLAY: SUA PLATAFORMA DE STREAMING GR\u00c1TIS\nAproveite o Mercado Play, a experi\u00eancia de streaming integrada no seu app para assistir a filmes gr\u00e1tis, s\u00e9ries e conte\u00fado infantil sem custos.\nCat\u00e1logo sem custo: acesse milhares de t\u00edtulos gr\u00e1tis, sem assinaturas adicionais nem taxas ocultas.\nBenef\u00edcios Meli+: potencialize o seu entretenimento com acesso a plataformas premium como Disney+ e maximize seus benef\u00edcios em fretes e compras exclusivas.\nVENDA O QUE VOC\u00ca N\u00c3O USA MAIS\nTransforme em dinheiro o que est\u00e1 parado na sua casa. No Mercado Livre voc\u00ea pode vender produtos novos ou usados em poucos passos:\nAn\u00fancio gr\u00e1tis: crie a sua publica\u00e7\u00e3o em passos simples.\nGest\u00e3o total pelo app: controle vendas, pedidos e mensagens em uma s\u00f3 tela.\nChat direto: fale com os compradores para tirar d\u00favidas e combinar o envio.\nVenda r\u00e1pido, d\u00ea uma segunda vida a produtos usados e economize de verdade com o Mercado Livre.\nBaixe agora o app do Mercado Livre, aproveite o frete gr\u00e1tis e descubra as melhores ofertas e promo\u00e7\u00f5es!"
+                },
+                "im:price": {
+                    "label": "Obter",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "BRL"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Aplicativo"
+                    }
+                },
+                "rights": {
+                    "label": "Copyright \u00a9 1999-2025 Mercado Libre"
+                },
+                "title": {
+                    "label": "Mercado Livre: DIA DOS PAIS - MercadoLibre"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/br/app/mercado-livre-dia-dos-pais/id463624852?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Pr\u00e9via",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a3/04/19/a3041992-8a21-07c8-3150-d89c828cae8d/IOS_5.5_U201d_01.png/480x480bb.png",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/br/app/mercado-livre-dia-dos-pais/id463624852?uo=2",
+                    "attributes": {
+                        "im:id": "463624852",
+                        "im:bundleId": "com.3mosquitos.MercadoLibre"
+                    }
+                },
+                "im:artist": {
+                    "label": "MercadoLibre",
+                    "attributes": {
+                        "href": "https://apps.apple.com/br/developer/mercadolibre/id463624855?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6024",
+                        "term": "Shopping",
+                        "scheme": "https://apps.apple.com/br/genre/ios-compras/id6024?uo=2",
+                        "label": "Compras"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2011-09-08T18:13:40-07:00",
+                    "attributes": {
+                        "label": "08/09/2011"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "Bet\u00e3o\u2122 Bet, Apostas e Cassino"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/8c/ee/308cee6a-f28d-f01c-92c6-e46e76fb8b35/AppIcon-0-0-1x_U007epad-0-1-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/8c/ee/308cee6a-f28d-f01c-92c6-e46e76fb8b35/AppIcon-0-0-1x_U007epad-0-1-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/8c/ee/308cee6a-f28d-f01c-92c6-e46e76fb8b35/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "A emo\u00e7\u00e3o do Bet\u00e3o agora no seu celular! Baixe o app e aproveite toda a praticidade e seguran\u00e7a do aplicativo da plataforma para jogar apostas esportivas online, cassino ao vivo e slots no seu Iphone quando e onde quiser.\n\nLembre-se que apostas n\u00e3o \u00e9 investimento e jogue apenas por divers\u00e3o."
+                },
+                "im:price": {
+                    "label": "Obter",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "BRL"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Aplicativo"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 OIG Gaming Brazil"
+                },
+                "title": {
+                    "label": "Bet\u00e3o\u2122 Bet, Apostas e Cassino - OIG Gaming Brazil LTDA"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/br/app/bet%C3%A3o-bet-apostas-e-cassino/id6792335148?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Pr\u00e9via",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/76/e2/15/76e215be-d5e2-33c0-e230-85117fa00517/1.jpg/1024x1024bb.jpg",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/br/app/bet%C3%A3o-bet-apostas-e-cassino/id6792335148?uo=2",
+                    "attributes": {
+                        "im:id": "6792335148",
+                        "im:bundleId": "br.bet.betao"
+                    }
+                },
+                "im:artist": {
+                    "label": "OIG Gaming Brazil LTDA",
+                    "attributes": {
+                        "href": "https://apps.apple.com/br/developer/oig-gaming-brazil-ltda/id6776762417?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6004",
+                        "term": "Sports",
+                        "scheme": "https://apps.apple.com/br/genre/ios-esportes/id6004?uo=2",
+                        "label": "Esportes"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2026-07-28T00:00:00-07:00",
+                    "attributes": {
+                        "label": "28/07/2026"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "99: Corridas, Food, Pay"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/ad/7d/a0ad7d2c-6d5d-fdab-2fad-d2d22aebbc4f/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/ad/7d/a0ad7d2c-6d5d-fdab-2fad-d2d22aebbc4f/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/ad/7d/a0ad7d2c-6d5d-fdab-2fad-d2d22aebbc4f/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "O app da 99 agora \u00e9 muito mais: al\u00e9m de corridas com 99Pop, 99Plus, 99electric-Pro, 99T\u00e1xi e 99Moto, voc\u00ea conta com entrega de pacotes no 99Entrega, comida no 99Food e a 99Pay, conta digital para fazer Pix, pagar boletos, fazer seu dinheiro valorizar e at\u00e9 mesmo solicitar empr\u00e9stimo pessoal. Delivery, transporte e pagamentos num s\u00f3 app!\nCusto-benef\u00edcio, seguran\u00e7a e categorias para todos os momentos do seu dia! Com a 99, voc\u00ea pode viajar de carro ou moto e, ainda, enviar ou receber itens. Al\u00e9m disso, voc\u00ea pode contar com a nossa assist\u00eancia 24h, sem se preocupar com imprevistos.\nAs corridas da 99 s\u00e3o vigiadas 24h por dia! Temos um canal de ajuda para voc\u00ea dentro do app. Quem viaja de 99 tem seguran\u00e7a em primeiro lugar, al\u00e9m de conforto e economia.\nConfira as nossas categorias:\n99Pop: o econ\u00f4mico para todas as ocasi\u00f5es. \n99Moto: praticidade e economia das corridas de moto nas suas viagens do dia a dia!\n99Plus: pra voc\u00ea que precisa de um carro mais espa\u00e7oso e confort\u00e1vel.\n99electric-Pro: ideal para quem busca uma viagem confort\u00e1vel e silenciosa em um ve\u00edculo eletrificado.\n99T\u00e1xi: O t\u00e1xi tradicional na palma da sua m\u00e3o, com a seguran\u00e7a, conforto e agilidade da 99.\n99Entrega: mande aquele presente ou fa\u00e7a um envio do seu neg\u00f3cio com toda seguran\u00e7a da 99 no transporte.\nA 99 tem um carro, moto ou t\u00e1xi ideais para o que voc\u00ea procura!\nSuporte 24h\nNa 99, os passageiros contam com suporte 24h para qualquer solicita\u00e7\u00e3o relacionada \u00e0 viagem, ao transporte de encomenda ou ao motorista parceiro(a).\nSeguran\u00e7a\nTodos os motoristas parceiros da 99 passam por uma verifica\u00e7\u00e3o de seguran\u00e7a para se cadastrarem na plataforma. Al\u00e9m disso, para te deixar mais tranquilo(a), o app mostra o total de corridas e o tempo de atua\u00e7\u00e3o de cada motorista.\nClube99\nCom o Clube99, voc\u00ea recebe cupons de desconto para usar nas suas corridas pagando pouco por isso. Para acessar os vouchers, basta abrir o app, clicar no \u00edcone do menu lateral e adquirir a vantagem clicando na tarja dourada escrita \"Clube99\".\n99Pay\nA 99Pay \u00e9 a conta digital 99, dispon\u00edvel dentro do app. Na 99Pay seu dinheiro valoriza at\u00e9 110% do CDI todos os dias, inclusive aos finais de semana e feriados. Com toda a comodidade e seguran\u00e7a, voc\u00ea tamb\u00e9m pode realizar transa\u00e7\u00f5es Pix, pagar boletos, recarregar o celular, receber cashback nas corridas realizadas na 99 e ainda solicitar empr\u00e9stimos pessoais.\nA 99Pay atua como correspondente banc\u00e1rio de institui\u00e7\u00f5es parceiras autorizadas pelo Banco Central do Brasil, conforme a Resolu\u00e7\u00e3o CMN n\u00ba 4.935/21. Os empr\u00e9stimos pessoais oferecidos t\u00eam prazos de pagamento que variam de 3 a 18 meses, com taxas de juros m\u00ednimas de 3% e m\u00e1ximas de 18%. A t\u00edtulo exemplificativo, para uma simula\u00e7\u00e3o realizada em 24/09/2025, no valor de R$1.000,00, com parcelas fixas de R$102,91 em um prazo de 12 meses, o Custo Efetivo Total (CET) \u00e9 de 3,39% a.m. e 49,33 % a.a. O total a pagar \u00e9 de R$1.234,92 (incluindo principal, juros e IOF). Todos os valores s\u00e3o exemplificativos e esta simula\u00e7\u00e3o n\u00e3o constitui uma oferta de cr\u00e9dito. As taxas s\u00e3o calculadas de acordo com o perfil de cada cliente e podem variar. Em geral, as taxas de juros anuais variam de 43,00% a 629,00% (com base em dados de 2025). Os prazos de pagamento podem variar de 90 dias a 18 meses. Todos os custos associados ao empr\u00e9stimo \u2013 juros, IOF, seguro, impostos, taxas de registro e outras despesas \u2013 est\u00e3o inclu\u00eddos no Custo Efetivo Total (CET), que pode variar de 49,35% a 746,89% ao ano.\nPr\u00e1tico\nA 99 agiliza a sua rota oferecendo op\u00e7\u00f5es de corridas de carro, moto ou t\u00e1xi, com motorista particular e, ainda, categoria exclusiva para entregas e transporte de encomendas.\nCusto-benef\u00edcio e seguran\u00e7a em todas as viagens de carro, moto ou t\u00e1xi e tamb\u00e9m no transporte de encomendas. Conta com a 99!"
+                },
+                "im:price": {
+                    "label": "Obter",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "BRL"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Aplicativo"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 99"
+                },
+                "title": {
+                    "label": "99: Corridas, Food, Pay - 99 Taxis Desenvolvimento de Softwares Ltda. - Epp"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/br/app/99-corridas-food-pay/id553663691?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Pr\u00e9via",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/81/73/51/8173517a-d68a-81c3-4978-21bc55782175/IPAD_PT_1__U00282_U0029.jpg/1024x1024bb.jpg",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/br/app/99-corridas-food-pay/id553663691?uo=2",
+                    "attributes": {
+                        "im:id": "553663691",
+                        "im:bundleId": "com.99taxis"
+                    }
+                },
+                "im:artist": {
+                    "label": "99 Taxis Desenvolvimento de Softwares Ltda. - Epp",
+                    "attributes": {
+                        "href": "https://apps.apple.com/br/developer/99-taxis-desenvolvimento-de-softwares-ltda-epp/id553663694?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6003",
+                        "term": "Travel",
+                        "scheme": "https://apps.apple.com/br/genre/ios-viagens/id6003?uo=2",
+                        "label": "Viagens"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2012-08-21T15:45:10-07:00",
+                    "attributes": {
+                        "label": "21/08/2012"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "SHEIN - Compras Online"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/b8/26/56b8263f-1c84-c45f-29c0-09adff95d9b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/b8/26/56b8263f-1c84-c45f-29c0-09adff95d9b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/b8/26/56b8263f-1c84-c45f-29c0-09adff95d9b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "Tudo o que voc\u00ea ama, agora na ponta de seus dedos!\n\nA SHEIN \u00e9 uma plataforma de compras online divertida e super acess\u00edvel. Desde roupas de moda at\u00e9 itens de casa, beleza, acess\u00f3rios, sapatos e pets, al\u00e9m de eletr\u00f4nicos, ferramentas, itens de escrit\u00f3rio e muito mais; a SHEIN se dedica a atender todas as suas necessidades de vida. Te manteremos informado sobre novos lan\u00e7amentos e muito mais! Voc\u00ea tamb\u00e9m pode interagir com outros f\u00e3s da SHEIN em tempo real. \nCom a pol\u00edtica de devolu\u00e7\u00e3o gratuita na primeira compra e v\u00e1rias oportunidades de frete gr\u00e1tis, esperamos que voc\u00ea tenha uma \u00f3tima experi\u00eancia com a SHEIN!\n\nInspire-se com a SHEIN agora mesmo!\u00a0\n\nEconomize mais\n- Ganhe R$12 off na sua primeira compra\n-FRETE GR\u00c1TIS a partir de R$69\n- Super Ofertas Di\u00e1rias: Ganhe at\u00e9 90% de desconto em diversos itens\n\nSele\u00e7\u00f5es de pe\u00e7as\u00a0\n- Aproveite as sele\u00e7\u00f5es para comprar facilmente e com divers\u00e3o\u00a0\n- Procure por Novos Lan\u00e7amentos, Tend\u00eancias, Categorias, Best Sellers e mais!\n\nSele\u00e7\u00f5es de pe\u00e7as \n- Aproveite as sele\u00e7\u00f5es para comprar facilmente e com divers\u00e3o\u00a0 \n- Procure por Novos Lan\u00e7amentos, Tend\u00eancias, Categorias, Best Sellers e mais!\n\nServi\u00e7o atencioso\n- Garanta o primeiro acesso a alertas de venda e descontos promocionais\n- Agora aceitamos PayPal e os principais Cart\u00f5es de Cr\u00e9dito \n- Ao usar um cart\u00e3o de cr\u00e9dito brasileiro, seu pagamento poder\u00e1 ser dividido em at\u00e9 6 parcelas\n- Atendimento ao cliente 24/7 e Live Chat dispon\u00edvel\n\nEntre em contato:\nURL: br.shein.com\nFacebook: https://www.facebook.com/SHEINBrasil\nInstagram: https://www.instagram.com/sheinbrasil/\nEmail: dispute@shein.com"
+                },
+                "im:price": {
+                    "label": "Obter",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "BRL"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Aplicativo"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 SHEIN"
+                },
+                "title": {
+                    "label": "SHEIN - Compras Online - ROADGET BUSINESS PTE. LTD."
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/br/app/shein-compras-online/id878577184?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Pr\u00e9via",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b4/a4/25/b4a4256a-13fe-a75d-ac58-acab6c752d50/ipad12.9-01.jpg/1024x1024bb.jpg",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/br/app/shein-compras-online/id878577184?uo=2",
+                    "attributes": {
+                        "im:id": "878577184",
+                        "im:bundleId": "zzkko.com.ZZKKO"
+                    }
+                },
+                "im:artist": {
+                    "label": "ROADGET BUSINESS PTE. LTD.",
+                    "attributes": {
+                        "href": "https://apps.apple.com/br/developer/roadget-business-pte-ltd/id1526109949?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6024",
+                        "term": "Shopping",
+                        "scheme": "https://apps.apple.com/br/genre/ios-compras/id6024?uo=2",
+                        "label": "Compras"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2014-05-19T20:45:36-07:00",
+                    "attributes": {
+                        "label": "19/05/2014"
+                    }
+                }
+            }
+        ],
+        "updated": {
+            "label": "2026-08-07T02:17:58-07:00"
+        },
+        "rights": {
+            "label": "Copyright 2008 Apple Inc."
+        },
+        "title": {
+            "label": "iTunes Store: Top apps gr\u00e1tis"
+        },
+        "icon": {
+            "label": "http://itunes.apple.com/favicon.ico"
+        },
+        "link": [
+            {
+                "attributes": {
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "href": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?cc=br&id=132006&popId=96"
+                }
+            },
+            {
+                "attributes": {
+                    "rel": "self",
+                    "href": "https://itunes.apple.com/br/rss/topfreeapplications/limit=5/json"
+                }
+            }
+        ],
+        "id": {
+            "label": "https://itunes.apple.com/br/rss/topfreeapplications/limit=5/json"
+        }
+    }
+}

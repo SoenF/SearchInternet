@@ -1,0 +1,140 @@
+{
+    "exhaustive": {
+        "nbHits": true,
+        "typo": true
+    },
+    "exhaustiveNbHits": true,
+    "exhaustiveTypo": true,
+    "hits": [
+        {
+            "_highlightResult": {
+                "author": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "MarcelOlsz"
+                },
+                "story_text": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "I'm building a QA testing agent and everything works, except for having somewhat under par accuracy in resolving web elements from an image. For example I overlayed various types of grids onto an image which helped AI locate with better accuracy, but it was always still off the mark.<p>Is there some service I can use that will give me accurate coordinates of a web element on a viewport from an image?<p>I built a small DOM transformation tool to feed in a minimal DOM to my AI as context and it works very well, but things get dicey with iframes and some other things. Then I pivoted to using screenshots in base64 which has a much lower token count, but I can't solve my accuracy problem."
+                },
+                "title": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Ask HN: Best way to extract web element coordinates from an image?"
+                }
+            },
+            "_tags": [
+                "story",
+                "author_MarcelOlsz",
+                "story_42570167",
+                "ask_hn"
+            ],
+            "author": "MarcelOlsz",
+            "created_at": "2025-01-01T23:25:51Z",
+            "created_at_i": 1735773951,
+            "num_comments": 0,
+            "objectID": "42570167",
+            "points": 2,
+            "story_id": 42570167,
+            "story_text": "I&#x27;m building a QA testing agent and everything works, except for having somewhat under par accuracy in resolving web elements from an image. For example I overlayed various types of grids onto an image which helped AI locate with better accuracy, but it was always still off the mark.<p>Is there some service I can use that will give me accurate coordinates of a web element on a viewport from an image?<p>I built a small DOM transformation tool to feed in a minimal DOM to my AI as context and it works very well, but things get dicey with iframes and some other things. Then I pivoted to using screenshots in base64 which has a much lower token count, but I can&#x27;t solve my accuracy problem.",
+            "title": "Ask HN: Best way to extract web element coordinates from an image?",
+            "updated_at": "2025-01-02T11:56:37Z"
+        },
+        {
+            "_highlightResult": {
+                "author": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "aio2"
+                },
+                "story_text": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "I wish to learn about Postgres and applying it to Python. Any good resources on this? Documentation is confusing me, Chatgpt doesn't give the best lessons, and other websites that I search for don't go into enough depth. Sure, they cover the basics, but I'd like to learn more.<p>If I had to be selfish, something similar to the Head First series would be greatly appreciated. I was originally going to use it, but they went with mysql. I tried to follow along even though I was using Postgres, but I got stuck on some spots, so something more aligned to postgres would be better for me.<p>Thanks."
+                },
+                "title": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Ask HN: Trying to learn Postgres and Python, any help?"
+                }
+            },
+            "_tags": [
+                "story",
+                "author_aio2",
+                "story_42569587",
+                "ask_hn"
+            ],
+            "author": "aio2",
+            "children": [
+                42569743,
+                42569768,
+                42569858
+            ],
+            "created_at": "2025-01-01T21:47:42Z",
+            "created_at_i": 1735768062,
+            "num_comments": 5,
+            "objectID": "42569587",
+            "points": 4,
+            "story_id": 42569587,
+            "story_text": "I wish to learn about Postgres and applying it to Python. Any good resources on this? Documentation is confusing me, Chatgpt doesn&#x27;t give the best lessons, and other websites that I search for don&#x27;t go into enough depth. Sure, they cover the basics, but I&#x27;d like to learn more.<p>If I had to be selfish, something similar to the Head First series would be greatly appreciated. I was originally going to use it, but they went with mysql. I tried to follow along even though I was using Postgres, but I got stuck on some spots, so something more aligned to postgres would be better for me.<p>Thanks.",
+            "title": "Ask HN: Trying to learn Postgres and Python, any help?",
+            "updated_at": "2025-02-06T13:56:43Z"
+        },
+        {
+            "_highlightResult": {
+                "author": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "SamInTheShell"
+                },
+                "story_text": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "I have a background in automating infrastructure, doing Linux Administration, DevOps, and more recently a Platform Engineering role. I've been doing programming in Go since roughly 2015, but haven't done anything public facing.<p>How do I build up this background to move towards programming in Go?<p>I've not really figured it out, these dev jobs seem pretty elusive and I've always talked too low level or too high level during interviews. Pretty sure I talked myself out of one Go dev job by talking about how strings work traditionally in C. lol<p>Any perspective is appreciated."
+                },
+                "title": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Ask HN: How does one become a Go developer?"
+                }
+            },
+            "_tags": [
+                "story",
+                "author_SamInTheShell",
+                "story_42569559",
+                "ask_hn"
+            ],
+            "author": "SamInTheShell",
+            "children": [
+                42573372,
+                42573112,
+                42572524,
+                42569622
+            ],
+            "created_at": "2025-01-01T21:42:22Z",
+            "created_at_i": 1735767742,
+            "num_comments": 5,
+            "objectID": "42569559",
+            "points": 7,
+            "story_id": 42569559,
+            "story_text": "I have a background in automating infrastructure, doing Linux Administration, DevOps, and more recently a Platform Engineering role. I&#x27;ve been doing programming in Go since roughly 2015, but haven&#x27;t done anything public facing.<p>How do I build up this background to move towards programming in Go?<p>I&#x27;ve not really figured it out, these dev jobs seem pretty elusive and I&#x27;ve always talked too low level or too high level during interviews. Pretty sure I talked myself out of one Go dev job by talking about how strings work traditionally in C. lol<p>Any perspective is appreciated.",
+            "title": "Ask HN: How does one become a Go developer?",
+            "updated_at": "2025-01-03T10:04:58Z"
+        }
+    ],
+    "hitsPerPage": 3,
+    "nbHits": 39,
+    "nbPages": 13,
+    "page": 0,
+    "params": "tags=ask_hn&numericFilters=created_at_i%3E%3D1735689600%2Ccreated_at_i%3C1735776000&hitsPerPage=3&advancedSyntax=true&analyticsTags=backend",
+    "processingTimeMS": 1,
+    "processingTimingsMS": {
+        "_request": {
+            "roundTrip": 22
+        },
+        "total": 1
+    },
+    "query": "",
+    "serverTimeMS": 1
+}

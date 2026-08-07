@@ -1,0 +1,519 @@
+{
+    "feed": {
+        "author": {
+            "name": {
+                "label": "iTunes Store"
+            },
+            "uri": {
+                "label": "http://www.apple.com/itunes/"
+            }
+        },
+        "entry": [
+            {
+                "im:name": {
+                    "label": "TikTok Pro - Events"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7f/b5/88/7fb58869-cb05-0fbe-8f71-8a54f00f979e/AppIcon_TikTok-0-0-1x_U007emarketing-0-8-0-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7f/b5/88/7fb58869-cb05-0fbe-8f71-8a54f00f979e/AppIcon_TikTok-0-0-1x_U007emarketing-0-8-0-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7f/b5/88/7fb58869-cb05-0fbe-8f71-8a54f00f979e/AppIcon_TikTok-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "TikTok Pro - Events is a global discovery platform for videos where you can discover cool, funny, and educational short videos, as well as share important moments with your friends.\n\nEngage more with videos you love\nWith TikTok Pro - Events, you can continue discovering and exploring the videos you already know and love on TikTok while joining daily challenges built around major events and cultural moments.\n\nFind your community\nIn TikTok Pro, you'll find your community and unleash your inner fan, and have the opportunity to invite your friends to enjoy what happening as well. Create new content, share it, and have fun.\n\nImmersive Experience\nThe purest and fastest viewing experience. Focus on what you want to see.\n\nTerms of Service:\nhttps://www.tiktok.com/legal/page/us/terms-of-service/en\n\nPrivacy Policy:\nhttps://www.tiktok.com/legal/page/us/privacy-policy/en\n\nFeedback?\nContact us at Report a problem | TikTok or tweet us @tiktok_us"
+                },
+                "im:price": {
+                    "label": "Get",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Application"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 2024 TikTok Pte. Ltd."
+                },
+                "title": {
+                    "label": "TikTok Pro - Events - TikTok Ltd."
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/us/app/tiktok-pro-events/id6741796873?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Preview",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/97/26/84/972684af-0395-1cb6-8ff8-ea3b2fd54067/Frame_2087325564.png/1024x1024bb.png",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/us/app/tiktok-pro-events/id6741796873?uo=2",
+                    "attributes": {
+                        "im:id": "6741796873",
+                        "im:bundleId": "com.ss.iphone.ugc.tiktok.pro"
+                    }
+                },
+                "im:artist": {
+                    "label": "TikTok Ltd.",
+                    "attributes": {
+                        "href": "https://apps.apple.com/us/developer/tiktok-ltd/id1322881000?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6016",
+                        "term": "Entertainment",
+                        "scheme": "https://apps.apple.com/us/genre/ios-entertainment/id6016?uo=2",
+                        "label": "Entertainment"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2026-06-03T00:00:00-07:00",
+                    "attributes": {
+                        "label": "June 3, 2026"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "ChatGPT"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/2d/ef/592defc8-04d3-4d04-b5c0-2205f1fa0121/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/2d/ef/592defc8-04d3-4d04-b5c0-2205f1fa0121/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/2d/ef/592defc8-04d3-4d04-b5c0-2205f1fa0121/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "Introducing ChatGPT for iOS: OpenAI\u2019s latest advancements at your fingertips.\n\nThis official app is free, syncs your history across devices, and brings you the latest from OpenAI, including the new image generator.\n\nWith ChatGPT in your pocket, you\u2019ll find:\n\n\u00b7 Image generation\u2013Generate original images from a description, or transform existing ones with a few simple words. \n\u00b7 Advanced Voice Mode\u2013Tap the soundwave icon to have a real-time convo on the go. Settle a dinner table debate, or practice a new language. \n\u00b7 Photo upload\u2014Snap or upload a picture to transcribe a handwritten recipe or get info about a landmark. \n\u00b7 Creative inspiration\u2014Find custom birthday gift ideas or create a personalized greeting card.\n\u00b7 Tailored advice\u2014Talk through a tough situation, ask for a detailed travel itinerary, or get help crafting the perfect response. \n\u00b7 Personalized learning\u2014Explain electricity to a dinosaur-loving kid or easily brush up yourself on a historic event.\n\u00b7 Professional input\u2014Brainstorm marketing copy or map out a business plan.\n\u00b7 Instant answers\u2014Get recipe suggestions when you only have a few ingredients.\n\nJoin hundreds of millions of users and try the app captivating the world. Download ChatGPT today.\n\nTerms of service & privacy policy:\nhttps://openai.com/policies/terms-of-use\nhttps://openai.com/policies/privacy-policy"
+                },
+                "im:price": {
+                    "label": "Get",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Application"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 2026 OpenAI OpCo L.L.C."
+                },
+                "title": {
+                    "label": "ChatGPT - OpenAI OpCo, LLC"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/us/app/chatgpt/id6448311069?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Preview",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/23/19/472319e8-cedb-a91e-571f-e9798d1fda1e/1_iPad.jpg/1024x1024bb.jpg",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/us/app/chatgpt/id6448311069?uo=2",
+                    "attributes": {
+                        "im:id": "6448311069",
+                        "im:bundleId": "com.openai.chat"
+                    }
+                },
+                "im:artist": {
+                    "label": "OpenAI OpCo, LLC",
+                    "attributes": {
+                        "href": "https://apps.apple.com/us/developer/openai-opco-llc/id1684349733?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6007",
+                        "term": "Productivity",
+                        "scheme": "https://apps.apple.com/us/genre/ios-productivity/id6007?uo=2",
+                        "label": "Productivity"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2023-05-18T00:00:00-07:00",
+                    "attributes": {
+                        "label": "May 18, 2023"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "ParentSquare"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/35/41/f1354108-36e5-0a01-8a9f-dad0fe177e15/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/35/41/f1354108-36e5-0a01-8a9f-dad0fe177e15/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/35/41/f1354108-36e5-0a01-8a9f-dad0fe177e15/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "What is ParentSquare?\n\nParentSquare helps schools and families stay connected and informed\u2014all in one easy place. Whether it\u2019s a quick message from a teacher, an important alert from the district, or a reminder about tomorrow\u2019s field trip, ParentSquare makes sure families never miss a thing.\n\nWhy families and teachers love ParentSquare:\n\n\u2022 Simple, easy-to-use app and website\n\u2022 Messages are automatically translated into 190+ languages\n\u2022 Best-in-class safety and security practices\n\u2022 One place for all school updates, alerts, and messages\n\nWith ParentSquare, families and staff save time and stay connected\u2014so everyone can focus on helping students succeed.\n\nParentSquare for iOS\n\nThe ParentSquare app makes it easy for families to stay in the loop and engage with their child\u2019s school community. With the app, parents and guardians can:\n\n\u2022 See school news, classroom updates, and photos\n\u2022 Receive important notices like attendance alerts and cafeteria balances\n\u2022 Message teachers and staff directly\n\u2022 Join group conversations\n\u2022 Sign up for wishlist items, volunteering, and conferences\n\u2022 Respond to absences or tardies*\n\u2022 Pay school-related fees and invoices*\n\n\n* If included with your school's implementation"
+                },
+                "im:price": {
+                    "label": "Get",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Application"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 2014-2026 ParentSquare LLC"
+                },
+                "title": {
+                    "label": "ParentSquare - ParentSquare"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/us/app/parentsquare/id908126679?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Preview",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/8e/d9/4a8ed9ab-d89e-daf3-205c-a212561fe77e/01_Never-miss-an-update_iPad-13.png/1024x1024bb.png",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/us/app/parentsquare/id908126679?uo=2",
+                    "attributes": {
+                        "im:id": "908126679",
+                        "im:bundleId": "com.parentsquare.psapp"
+                    }
+                },
+                "im:artist": {
+                    "label": "ParentSquare",
+                    "attributes": {
+                        "href": "https://apps.apple.com/us/developer/parentsquare/id908126682?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6017",
+                        "term": "Education",
+                        "scheme": "https://apps.apple.com/us/genre/ios-education/id6017?uo=2",
+                        "label": "Education"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2014-08-20T19:41:59-07:00",
+                    "attributes": {
+                        "label": "August 20, 2014"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "Capital One Mobile"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/29/09/2d/29092db8-027f-7d82-1a5b-5b1731556d67/AppIcon-0-0-1x_U007epad-0-1-P3-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/29/09/2d/29092db8-027f-7d82-1a5b-5b1731556d67/AppIcon-0-0-1x_U007epad-0-1-P3-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/29/09/2d/29092db8-027f-7d82-1a5b-5b1731556d67/AppIcon-0-0-1x_U007epad-0-1-P3-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "What\u2019s on the Capital One Mobile app? All of your accounts, and so much more.\n\nWhether you\u2019re out in the world or feeling right at home, you can manage your money with ease:\n- View balances and export statements\n- Pay bills and take care of loans\n- Check in on your credit with CreditWise\n- Activate a credit or debit card when you need it\n- Redeem rewards on the go\n- Send and receive money with friends and family using Zelle\u00ae\n \nWith the Capital One Mobile app, you can ...\n- Stay informed when you enable alerts and purchase notifications\n- See everything that happens on your card with detailed transactions\n- Instantly lock your credit or debit card from anywhere\n- Get answers from Eno, your Capital One assistant\n\nDownload the app for better banking with Capital One.\n\n\n\nInternet access is needed to use the mobile app. Check with your Internet service provider for details of specific fees and charges. Service outages may occur. Capital One customers are responsible for regularly checking their account statements. Push, email, and SMS alerts and notifications, including purchase notifications, must be enabled to be received. CreditWise monitoring and alerts may not be available if the information you enter at enrollment does not match the information in your file at one or more consumer reporting agencies or you do not have a file at one or more consumer reporting agencies. Features may not be available to all customers. Actual experiences may differ from those depicted. Additional terms and limitations apply. \n\nZelle and the Zelle related marks are wholly owned by Early Warning Services, LLC and are used herein under license. To read about the Terms of your download, check out the End User License Agreement."
+                },
+                "im:price": {
+                    "label": "Get",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Application"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 2026 Capital One, N.A. Member FDIC. Zelle and the Zelle related marks are wholly owned by Early Warning Services, LLC and are used herein under license."
+                },
+                "title": {
+                    "label": "Capital One Mobile - Capital One"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/us/app/capital-one-mobile/id407558537?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Preview",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0d/91/fe/0d91fef3-e333-1d78-2c4b-9bf031445b91/6229ac2f-1b2d-4977-b10c-3babc540d3c0_Capone_iPad_AppStore_updatedJul2701.jpeg.jpg/1024x1024bb.jpg",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/us/app/capital-one-mobile/id407558537?uo=2",
+                    "attributes": {
+                        "im:id": "407558537",
+                        "im:bundleId": "com.capitalone.enterprisemobilebanking"
+                    }
+                },
+                "im:artist": {
+                    "label": "Capital One",
+                    "attributes": {
+                        "href": "https://apps.apple.com/us/developer/capital-one/id339644101?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6015",
+                        "term": "Finance",
+                        "scheme": "https://apps.apple.com/us/genre/ios-finance/id6015?uo=2",
+                        "label": "Finance"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2010-12-13T00:00:00-07:00",
+                    "attributes": {
+                        "label": "December 13, 2010"
+                    }
+                }
+            },
+            {
+                "im:name": {
+                    "label": "Vinted: Pre-loved marketplace"
+                },
+                "im:image": [
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/b6/0d/dfb60d40-308c-1001-1c0d-e833fff2e41c/VintedAppIcon-0-0-1x_U007epad-0-1-85-220.png/53x53bb.png",
+                        "attributes": {
+                            "height": "53"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/b6/0d/dfb60d40-308c-1001-1c0d-e833fff2e41c/VintedAppIcon-0-0-1x_U007epad-0-1-85-220.png/75x75bb.png",
+                        "attributes": {
+                            "height": "75"
+                        }
+                    },
+                    {
+                        "label": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/b6/0d/dfb60d40-308c-1001-1c0d-e833fff2e41c/VintedAppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+                        "attributes": {
+                            "height": "100"
+                        }
+                    }
+                ],
+                "summary": {
+                    "label": "The idea is simple: you sell your pre-loved stuff to other members who\u2019ll love it again. They get the thrill of unboxing a great find, you get more space at home. It's look-good, do-good, feel-good, for everyone. \n\nSelling is easy and free\nSnap photos of your item, describe it, and set your price. You keep 100% of what you earn.  \n\u2022 Cash in on your pre-loved clothes and more. \n\u2022 Watch your earnings grow. Send your money straight to your bank account. \n\u2022 Buyers cover shipping costs. You get prepaid labels that make things simple. \n\nShop new-again finds \t\t\t\t\nFeel proud of your second-hand discoveries, from clothes to accessories. \n\u2022 Fast finds, long-lasting love. There\u2019s a Vinted category for almost everything, use filters to speed up shopping. \n\u2022 We\u2019ve got your back. When you buy on Vinted, we cover you with Buyer Protection. For a small fee, you\u2019ll get a refund if your item is lost, damaged in delivery, or significantly not as described. \n\u2022 Choose a shipping carrier and have your order sent to your home or a convenient pickup location.  \n\nThere\u2019s a diverse community of second-hand enthusiasts waiting to meet you. Chat with your fellow members, get updates, and manage your orders all in one place. \n\nCome join us\nTikTok: https://www.tiktok.com/@vinted \nInstagram: https://www.instagram.com/vinted\nFind out more in our Help Center: https://www.vinted.com/help"
+                },
+                "im:price": {
+                    "label": "Get",
+                    "attributes": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    }
+                },
+                "im:contentType": {
+                    "attributes": {
+                        "term": "Application",
+                        "label": "Application"
+                    }
+                },
+                "rights": {
+                    "label": "\u00a9 2024 Vinted"
+                },
+                "title": {
+                    "label": "Vinted: Pre-loved marketplace - Vinted Limited"
+                },
+                "link": [
+                    {
+                        "attributes": {
+                            "rel": "alternate",
+                            "type": "text/html",
+                            "href": "https://apps.apple.com/us/app/vinted-pre-loved-marketplace/id632064380?uo=2"
+                        }
+                    },
+                    {
+                        "im:duration": {
+                            "label": "0"
+                        },
+                        "attributes": {
+                            "title": "Preview",
+                            "rel": "enclosure",
+                            "type": "image/jpeg",
+                            "href": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/44/e3/2244e397-986c-e6e9-68ab-b73aa1ced90d/96cc4f9d-5dec-4cda-9d04-e9237849cb5f_App_store_-_US_-_Ipad_-_1.png/1024x1024bb.png",
+                            "im:assetType": "preview"
+                        }
+                    }
+                ],
+                "id": {
+                    "label": "https://apps.apple.com/us/app/vinted-pre-loved-marketplace/id632064380?uo=2",
+                    "attributes": {
+                        "im:id": "632064380",
+                        "im:bundleId": "lt.manodrabuziai.fr"
+                    }
+                },
+                "im:artist": {
+                    "label": "Vinted Limited",
+                    "attributes": {
+                        "href": "https://apps.apple.com/us/developer/vinted-limited/id554164035?uo=2"
+                    }
+                },
+                "category": {
+                    "attributes": {
+                        "im:id": "6024",
+                        "term": "Shopping",
+                        "scheme": "https://apps.apple.com/us/genre/ios-shopping/id6024?uo=2",
+                        "label": "Shopping"
+                    }
+                },
+                "im:releaseDate": {
+                    "label": "2013-04-11T10:12:20-07:00",
+                    "attributes": {
+                        "label": "April 11, 2013"
+                    }
+                }
+            }
+        ],
+        "updated": {
+            "label": "2026-08-07T02:17:38-07:00"
+        },
+        "rights": {
+            "label": "Copyright 2008 Apple Inc."
+        },
+        "title": {
+            "label": "iTunes Store: Top Free Apps"
+        },
+        "icon": {
+            "label": "http://itunes.apple.com/favicon.ico"
+        },
+        "link": [
+            {
+                "attributes": {
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "href": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?cc=us&id=1&popId=96"
+                }
+            },
+            {
+                "attributes": {
+                    "rel": "self",
+                    "href": "https://itunes.apple.com/us/rss/topfreeapplications/limit=5/json"
+                }
+            }
+        ],
+        "id": {
+            "label": "https://itunes.apple.com/us/rss/topfreeapplications/limit=5/json"
+        }
+    }
+}

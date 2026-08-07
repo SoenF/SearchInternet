@@ -1,0 +1,249 @@
+{
+  "took": 153,
+  "hits": {
+    "total": {
+      "value": 5,
+      "relation": "eq"
+    },
+    "hits": [
+      {
+        "_index": "edgar_file",
+        "_id": "0002148443-26-000001:primary_doc.xml",
+        "_score": null,
+        "_source": {
+          "ciks": [
+            "0002148443"
+          ],
+          "period_ending": null,
+          "file_num": [
+            "021-592874"
+          ],
+          "display_names": [
+            "Exp Blueline I LLC  (CIK 0002148443)"
+          ],
+          "xsl": "xslFormDX01",
+          "schema_version": "X0708",
+          "sequence": 1,
+          "root_forms": [
+            "D"
+          ],
+          "file_date": "2026-07-31",
+          "biz_states": [
+            "GA"
+          ],
+          "sics": [],
+          "form": "D",
+          "adsh": "0002148443-26-000001",
+          "film_num": [
+            "261229462"
+          ],
+          "biz_locations": [
+            "Woodstock, GA"
+          ],
+          "file_type": "D",
+          "file_description": null,
+          "inc_states": [
+            "OH"
+          ],
+          "items": [
+            "06C"
+          ]
+        },
+        "sort": [
+          1785456000000,
+          "0002148443-26-000001:primary_doc.xml"
+        ]
+      },
+      {
+        "_index": "edgar_file",
+        "_id": "0002148431-26-000001:primary_doc.xml",
+        "_score": null,
+        "_source": {
+          "ciks": [
+            "0002148431"
+          ],
+          "period_ending": null,
+          "file_num": [
+            "021-592876"
+          ],
+          "display_names": [
+            "H. BOISCH SOLUTIONS INC.  (CIK 0002148431)"
+          ],
+          "xsl": "xslFormDX01",
+          "schema_version": "X0708",
+          "sequence": 1,
+          "root_forms": [
+            "D"
+          ],
+          "file_date": "2026-07-31",
+          "biz_states": [
+            "CA"
+          ],
+          "sics": [],
+          "form": "D",
+          "adsh": "0002148431-26-000001",
+          "film_num": [
+            "261229578"
+          ],
+          "biz_locations": [
+            "San Marcos, CA"
+          ],
+          "file_type": "D",
+          "file_description": null,
+          "inc_states": [
+            "CA"
+          ],
+          "items": [
+            "04"
+          ]
+        },
+        "sort": [
+          1785456000000,
+          "0002148431-26-000001:primary_doc.xml"
+        ]
+      },
+      {
+        "_index": "edgar_file",
+        "_id": "0002148383-26-000001:primary_doc.xml",
+        "_score": null,
+        "_source": {
+          "ciks": [
+            "0002148383"
+          ],
+          "period_ending": null,
+          "file_num": [
+            "021-592868"
+          ],
+          "display_names": [
+            "Get Kraken Series C Preferred, LLC  (CIK 0002148383)"
+          ],
+          "xsl": "xslFormDX01",
+          "schema_version": "X0708",
+          "sequence": 1,
+          "root_forms": [
+            "D"
+          ],
+          "file_date": "2026-07-31",
+          "biz_states": [
+            "CT"
+          ],
+          "sics": [],
+          "form": "D",
+          "adsh": "0002148383-26-000001",
+          "film_num": [
+            "261229217"
+          ],
+          "biz_locations": [
+            "Shelton, CT"
+          ],
+          "file_type": "D",
+          "file_description": null,
+          "inc_states": [
+            "CT"
+          ],
+          "items": [
+            "06B",
+            "3C",
+            "3C.1"
+          ]
+        },
+        "sort": [
+          1785456000000,
+          "0002148383-26-000001:primary_doc.xml"
+        ]
+      },
+      {
+        "_index": "edgar_file",
+        "_id": "0000203596-24-000002:primary_doc.xml",
+        "_score": 3.018046,
+        "_source": {
+          "ciks": [
+            "0000203596"
+          ],
+          "period_ending": null,
+          "file_num": [
+            "021-520850"
+          ],
+          "display_names": [
+            "WESBANCO INC  (WSBC, WSBCP)  (CIK 0000203596)"
+          ],
+          "xsl": "xslFormDX01",
+          "schema_version": "X0708",
+          "sequence": 1,
+          "root_forms": [
+            "D"
+          ],
+          "file_date": "2024-08-07",
+          "biz_states": [
+            "WV"
+          ],
+          "sics": [
+            "6021"
+          ],
+          "form": "D",
+          "adsh": "0000203596-24-000002",
+          "film_num": [
+            "241183314"
+          ],
+          "biz_locations": [
+            "Wheeling, WV"
+          ],
+          "file_type": "D",
+          "file_description": null,
+          "inc_states": [
+            "WV"
+          ],
+          "items": [
+            "06B"
+          ]
+        }
+      },
+      {
+        "_index": "edgar_file",
+        "_id": "0000740806-25-000004:primary_doc.xml",
+        "_score": 2.9978373,
+        "_source": {
+          "ciks": [
+            "0000740806"
+          ],
+          "period_ending": null,
+          "file_num": [
+            "021-562727"
+          ],
+          "display_names": [
+            "F&M BANK CORP  (FMBM)  (CIK 0000740806)"
+          ],
+          "xsl": "xslFormDX01",
+          "schema_version": "X0708",
+          "sequence": 1,
+          "root_forms": [
+            "D"
+          ],
+          "file_date": "2025-10-31",
+          "biz_states": [
+            "VA"
+          ],
+          "sics": [
+            "6022"
+          ],
+          "form": "D",
+          "adsh": "0000740806-25-000004",
+          "film_num": [
+            "251440167"
+          ],
+          "biz_locations": [
+            "Timberville, VA"
+          ],
+          "file_type": "D",
+          "file_description": null,
+          "inc_states": [
+            "VA"
+          ],
+          "items": [
+            "06B"
+          ]
+        }
+      }
+    ]
+  }
+}

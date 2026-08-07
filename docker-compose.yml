@@ -1,0 +1,24 @@
+# Postgres + pgvector is the project's only datastore (relational and vector data
+# in one dependency, per architecture decision — see CLAUDE.md). Image pinned by
+# digest for reproducibility; verified 2026-08-07 to resolve to pgvector/pgvector:pg16
+# bundling pgvector 0.8.6 (HNSW requires >=0.5.0).
+services:
+  db:
+    image: pgvector/pgvector@sha256:a36250871de0833b8757561c72f2477ef1ddd1101afa4e617fb552e0de514c6b
+    environment:
+      POSTGRES_USER: opportunity_engine
+      POSTGRES_PASSWORD: opportunity_engine
+      POSTGRES_DB: opportunity_engine
+    ports:
+      # host 5433 -> avoid clashing with other local Postgres containers on 5432
+      - "5433:5432"
+    volumes:
+      - opportunity_engine_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opportunity_engine -d opportunity_engine"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  opportunity_engine_pgdata:

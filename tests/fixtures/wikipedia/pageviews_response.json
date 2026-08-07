@@ -1,0 +1,94 @@
+{
+    "items": [
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010100",
+            "access": "all-access",
+            "agent": "user",
+            "views": 36019
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010200",
+            "access": "all-access",
+            "agent": "user",
+            "views": 51363
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010300",
+            "access": "all-access",
+            "agent": "user",
+            "views": 48117
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010400",
+            "access": "all-access",
+            "agent": "user",
+            "views": 40558
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010500",
+            "access": "all-access",
+            "agent": "user",
+            "views": 41508
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010600",
+            "access": "all-access",
+            "agent": "user",
+            "views": 51316
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010700",
+            "access": "all-access",
+            "agent": "user",
+            "views": 58928
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010800",
+            "access": "all-access",
+            "agent": "user",
+            "views": 63164
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025010900",
+            "access": "all-access",
+            "agent": "user",
+            "views": 65861
+        },
+        {
+            "project": "en.wikipedia",
+            "article": "ChatGPT",
+            "granularity": "daily",
+            "timestamp": "2025011000",
+            "access": "all-access",
+            "agent": "user",
+            "views": 66121
+        }
+    ]
+}

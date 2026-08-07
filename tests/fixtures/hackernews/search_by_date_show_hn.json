@@ -1,0 +1,147 @@
+{
+    "exhaustive": {
+        "nbHits": true,
+        "typo": true
+    },
+    "exhaustiveNbHits": true,
+    "exhaustiveTypo": true,
+    "hits": [
+        {
+            "_highlightResult": {
+                "author": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "joyfultonin"
+                },
+                "story_text": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Since the recent release of Anthropic Model Context Protocol (MCP), I've been experimenting with adding MCP tools to a Chrome extension chatbot to aid my productivity. So far, it has helped me browse websites, send quick messages to Slack (or Slack useful information to myself directly), and do trip planning.<p>I'm curious to see if people would find it useful and what they would use it for. Currently, I'm soft-launching it to 100 test users to collect feedback. I only have a few MCP tools added so far, but I'm hoping to add more. Would love to know what tools you\u2019d like to see next.<p>Sign up if you'd like to try it out, and I'll email you the Chrome extension link (I'll need to add you to the tester list first for you to access the Chrome extension): <a href=\"https://chatmcp.pro?utm_source=hackernews&amp;utm_medium=referral&amp;utm_campaign=private-beta\" rel=\"nofollow\">https://chatmcp.pro?utm_source=hackernews&amp;utm_medium=referra...</a>"
+                },
+                "title": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Show HN: ChatMCP \u2013 I built an MCP-powered AI chatbot Chrome extension"
+                },
+                "url": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "https://chatmcp.pro"
+                }
+            },
+            "_tags": [
+                "story",
+                "author_joyfultonin",
+                "story_42629239",
+                "show_hn"
+            ],
+            "author": "joyfultonin",
+            "children": [
+                42629291
+            ],
+            "created_at": "2025-01-07T23:59:30Z",
+            "created_at_i": 1736294370,
+            "num_comments": 1,
+            "objectID": "42629239",
+            "points": 3,
+            "story_id": 42629239,
+            "story_text": "Since the recent release of Anthropic Model Context Protocol (MCP), I&#x27;ve been experimenting with adding MCP tools to a Chrome extension chatbot to aid my productivity. So far, it has helped me browse websites, send quick messages to Slack (or Slack useful information to myself directly), and do trip planning.<p>I&#x27;m curious to see if people would find it useful and what they would use it for. Currently, I&#x27;m soft-launching it to 100 test users to collect feedback. I only have a few MCP tools added so far, but I&#x27;m hoping to add more. Would love to know what tools you\u2019d like to see next.<p>Sign up if you&#x27;d like to try it out, and I&#x27;ll email you the Chrome extension link (I&#x27;ll need to add you to the tester list first for you to access the Chrome extension): <a href=\"https:&#x2F;&#x2F;chatmcp.pro?utm_source=hackernews&amp;utm_medium=referral&amp;utm_campaign=private-beta\" rel=\"nofollow\">https:&#x2F;&#x2F;chatmcp.pro?utm_source=hackernews&amp;utm_medium=referra...</a>",
+            "title": "Show HN: ChatMCP \u2013 I built an MCP-powered AI chatbot Chrome extension",
+            "updated_at": "2025-01-08T00:06:14Z",
+            "url": "https://chatmcp.pro"
+        },
+        {
+            "_highlightResult": {
+                "author": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "olievans"
+                },
+                "title": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Show HN: Chrome extension filters AI spam by enforcing pre-2023 Google results"
+                },
+                "url": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "https://chromewebstore.google.com/detail/pre-ai-search-filter-goog/claajpcgaehlepegbiibddifpnlokckb"
+                }
+            },
+            "_tags": [
+                "story",
+                "author_olievans",
+                "story_42629010",
+                "show_hn"
+            ],
+            "author": "olievans",
+            "children": [
+                42629011
+            ],
+            "created_at": "2025-01-07T23:29:30Z",
+            "created_at_i": 1736292570,
+            "num_comments": 1,
+            "objectID": "42629010",
+            "points": 3,
+            "story_id": 42629010,
+            "title": "Show HN: Chrome extension filters AI spam by enforcing pre-2023 Google results",
+            "updated_at": "2025-01-08T11:18:08Z",
+            "url": "https://chromewebstore.google.com/detail/pre-ai-search-filter-goog/claajpcgaehlepegbiibddifpnlokckb"
+        },
+        {
+            "_highlightResult": {
+                "author": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "hairetsu"
+                },
+                "story_text": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "I built Notate, a desktop research assistant that combines AI-driven analysis with vector search technology. It's designed to help researchers and knowledge workers organize and analyze documents, audio, and text while maintaining data privacy.<p>Key features:\n- Local-first architecture with Ollama support for complete privacy\n- Multiple LLM provider support (OpenAI, Anthropic, Google, XAI)\n- Built on ChromaDB for vector storage and semantic search\n- Cross-platform (macOS, Windows, Linux)\n- Document analysis and organization\n- YouTube and webpage analysis capabilities<p>Tech stack: TypeScript, React, Python, FastAPI, ChromaDB, Electron<p>The project is fully open-source under Apache License 2.0. Looking for feedback and contributors!<p>GitHub: <a href=\"https://github.com/CNTRLAI/Notate\">https://github.com/CNTRLAI/Notate</a>"
+                },
+                "title": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "Show HN: Notate \u2013 Open-source AI research assistant with local LLM support"
+                },
+                "url": {
+                    "matchLevel": "none",
+                    "matchedWords": [],
+                    "value": "https://notate.hairetsu.com"
+                }
+            },
+            "_tags": [
+                "story",
+                "author_hairetsu",
+                "story_42628930",
+                "show_hn"
+            ],
+            "author": "hairetsu",
+            "created_at": "2025-01-07T23:19:51Z",
+            "created_at_i": 1736291991,
+            "num_comments": 0,
+            "objectID": "42628930",
+            "points": 2,
+            "story_id": 42628930,
+            "story_text": "I built Notate, a desktop research assistant that combines AI-driven analysis with vector search technology. It&#x27;s designed to help researchers and knowledge workers organize and analyze documents, audio, and text while maintaining data privacy.<p>Key features:\n- Local-first architecture with Ollama support for complete privacy\n- Multiple LLM provider support (OpenAI, Anthropic, Google, XAI)\n- Built on ChromaDB for vector storage and semantic search\n- Cross-platform (macOS, Windows, Linux)\n- Document analysis and organization\n- YouTube and webpage analysis capabilities<p>Tech stack: TypeScript, React, Python, FastAPI, ChromaDB, Electron<p>The project is fully open-source under Apache License 2.0. Looking for feedback and contributors!<p>GitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;CNTRLAI&#x2F;Notate\">https:&#x2F;&#x2F;github.com&#x2F;CNTRLAI&#x2F;Notate</a>",
+            "title": "Show HN: Notate \u2013 Open-source AI research assistant with local LLM support",
+            "updated_at": "2025-01-07T23:32:13Z",
+            "url": "https://notate.hairetsu.com"
+        }
+    ],
+    "hitsPerPage": 3,
+    "nbHits": 375,
+    "nbPages": 125,
+    "page": 0,
+    "params": "tags=show_hn&numericFilters=created_at_i%3E%3D1735689600%2Ccreated_at_i%3C1736294400&hitsPerPage=3&page=0&advancedSyntax=true&analyticsTags=backend",
+    "processingTimeMS": 1,
+    "processingTimingsMS": {
+        "_request": {
+            "roundTrip": 28
+        },
+        "total": 1
+    },
+    "query": "",
+    "serverTimeMS": 1
+}

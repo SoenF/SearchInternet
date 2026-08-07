@@ -1,0 +1,48 @@
+{
+  "_fixture_note": "Hand-constructed, NOT a captured live response -- the Product Hunt v2 API requires an OAuth/developer bearer token for every request (no anonymous tier), unavailable in this build environment. Field names and nesting verified against the public schema at github.com/producthunt/producthunt-api/blob/master/schema.graphql (Query.posts, Post, PostConnection, PostEdge, PageInfo). See tests/connectors/test_producthunt_collector.py.",
+  "data": {
+    "posts": {
+      "edges": [
+        {
+          "node": {
+            "id": "700001",
+            "name": "InvoiceFlow",
+            "tagline": "Reconcile invoices across five accounting tools in one click",
+            "description": "InvoiceFlow pulls invoices from QuickBooks, Xero, and three other tools and reconciles them automatically so accountants stop copy-pasting spreadsheets.",
+            "url": "https://www.producthunt.com/posts/invoiceflow",
+            "votesCount": 142,
+            "commentsCount": 18,
+            "createdAt": "2025-01-01T09:00:00Z",
+            "topics": {
+              "edges": [
+                {"node": {"name": "Fintech"}},
+                {"node": {"name": "Productivity"}}
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "700002",
+            "name": "TicketTagger",
+            "tagline": "Auto-tag support tickets with an on-device model, no API key needed",
+            "description": "We hit $4k MRR in the first month after launch.",
+            "url": "https://www.producthunt.com/posts/tickettagger",
+            "votesCount": 88,
+            "commentsCount": 6,
+            "createdAt": "2025-01-01T15:30:00Z",
+            "topics": {
+              "edges": [
+                {"node": {"name": "SaaS"}}
+              ]
+            }
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": false,
+        "endCursor": null
+      }
+    }
+  }
+}
