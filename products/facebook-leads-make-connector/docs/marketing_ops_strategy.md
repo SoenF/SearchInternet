@@ -16,6 +16,42 @@ exactly what you flagged wanting to avoid. The fix is the same shape as
 `leadbridge` itself: put one layer between you and the platforms so you
 manage one credential, not N.
 
+## Which accounts are actually worth creating
+
+Not "all of them" — the audience for LeadBridge is narrow (people who run
+Facebook Lead Ads into Make.com, mostly agencies/freelancers managing
+client campaigns), and each platform's relevance to that audience is very
+different:
+
+- **The Make.com community forum itself** — highest intent of anything on
+  this list: it's literally where the two threads this product is built
+  from came from. Not a "social account" and not something Buffer
+  manages — it's a normal forum account, and most communities have
+  self-promotion norms (disclose you built it, don't drop a link with no
+  context) worth reading before posting, same spirit as respecting a
+  platform's ToS elsewhere in this project.
+- **LinkedIn** — real fit. This is where marketing-ops people, no-code
+  agency owners, and consultants managing client ad accounts actually are.
+  Primary channel.
+- **X** — decent secondary. There's a real "build in public" / no-code /
+  indie-hacker crowd there that overlaps with Make.com power users.
+- **Reddit** — situational, and a *personal account you post from manually*
+  is unrelated to the Opportunity Engine's earlier Reddit API decision
+  (that was about programmatic data collection, a different concern
+  entirely). r/Automate, r/nocode, r/FacebookAds, r/msp are plausible fits
+  — but Reddit's per-subreddit self-promotion rules are strict and vary a
+  lot; check each subreddit's rules before posting, some ban it outright or
+  require a participation history first.
+- **Instagram / Facebook (organic posts)** — weak fit. This is a visual,
+  consumer-attention platform; the audience for "GraphMethodException 100
+  fix" isn't scrolling it for that. Skip organic posting here — only
+  reconsider if you later decide to run *paid* ads targeting agencies
+  specifically, which is its own separate budget decision, not something
+  covered by Buffer's free posting tier.
+
+So: **LinkedIn + the Make forum first, X second**, Reddit only where a
+specific subreddit's rules allow it, and Instagram/Facebook skipped for now.
+
 ## Recommended: Buffer's MCP server (start here, today, free)
 
 Buffer shipped an **official MCP server** in 2026: `https://mcp.buffer.com/mcp`.
@@ -38,6 +74,20 @@ Buffer account, driven by conversation instead of code.
 so and I can run the `claude mcp add` command in this session; it still
 needs *you* to complete the OAuth sign-in yourself (that step can't be done
 on your behalf).
+
+## Video and images: what I can actually produce vs. what needs you
+
+- **Static graphics**: yes — the landing page's "messy JSON → clean JSON"
+  panel and the two error cards (`landing/index.html`) are already
+  screenshot-able as standalone social images, and I can draft more in the
+  same style (code snippets, before/after diagrams) on request.
+- **Post copy**: yes, drafted per-platform once Buffer is connected.
+- **A real demo video** (the webhook firing, Make receiving one clean
+  payload): no, not fabricated — that only means something once shot
+  against an actual live deployment with a real Facebook Page and Make
+  scenario. That needs `docs/SETUP.md` finished first; recording it is
+  either you screen-recording your own working setup, or, once it's live,
+  something I could walk through with you.
 
 ## If you outgrow Buffer's free tier or want zero recurring cost
 
