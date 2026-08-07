@@ -15,6 +15,11 @@ configured" -- distinct from `disabled_connectors`, which is an explicit
 opt-out. Missing API credentials is an implicit, silent opt-out: no
 `REDDIT_CLIENT_ID`/`PRODUCTHUNT_ACCESS_TOKEN` means the connector is skipped
 rather than crashing `build_enabled_collectors` at startup.
+
+Stack Exchange and GitHub Issues need no credential at all (a key/token only
+raises their rate limit, it doesn't gate access), so they're always
+registered like the four Phase 1 connectors -- only `disabled_connectors`
+can turn them off.
 """
 
 from __future__ import annotations
@@ -25,11 +30,15 @@ from typing import Any
 import psycopg
 
 from opportunity_engine.collectors.app_store import AppStoreCollector
+from opportunity_engine.collectors.app_store_reviews import AppStoreReviewsCollector
 from opportunity_engine.collectors.base import Collector
+from opportunity_engine.collectors.discourse_forums import DiscourseForumsCollector
 from opportunity_engine.collectors.edgar import EdgarFormDCollector
+from opportunity_engine.collectors.github_issues import GitHubIssuesCollector
 from opportunity_engine.collectors.hackernews import HackerNewsCollector
 from opportunity_engine.collectors.producthunt import ProductHuntCollector
 from opportunity_engine.collectors.reddit import RedditCollector
+from opportunity_engine.collectors.stackexchange import StackExchangeCollector
 from opportunity_engine.collectors.wikipedia_pageviews import WikipediaPageviewsCollector
 from opportunity_engine.config import Settings
 from opportunity_engine.tools.storage import fetch_tracked_topics
@@ -65,8 +74,22 @@ CONNECTOR_FACTORIES: dict[str, CollectorFactory] = {
         )
     ),
     AppStoreCollector.manifest.name: lambda settings, conn: AppStoreCollector(),
+    AppStoreReviewsCollector.manifest.name: lambda settings, conn: AppStoreReviewsCollector(),
+    DiscourseForumsCollector.manifest.name: (
+        lambda settings, conn: DiscourseForumsCollector(forums=settings.discourse_forums)
+    ),
     RedditCollector.manifest.name: _build_reddit,
     ProductHuntCollector.manifest.name: _build_producthunt,
+    StackExchangeCollector.manifest.name: (
+        lambda settings, conn: StackExchangeCollector(
+            sites=settings.stackexchange_sites, api_key=settings.stackexchange_api_key
+        )
+    ),
+    GitHubIssuesCollector.manifest.name: (
+        lambda settings, conn: GitHubIssuesCollector(
+            search_query=settings.github_search_query, token=settings.github_token
+        )
+    ),
 }
 
 

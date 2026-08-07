@@ -70,6 +70,21 @@ STRATEGIES: dict[DetectionStrategyName, DetectionStrategy] = {
 # loading the series -- see tools/scoring_tools.py's momentum docstring.
 _APP_RANK_INVERSION_BASE = 101
 
+# Every doc_type whose title+body is free-text pain/launch language, fed
+# into evidence text, the daily mention-count rollup, and revenue-mention
+# extraction identically -- as opposed to edgar_formd/app_store_ranking,
+# which carry structured signal instead of prose.
+_PAIN_DRIVEN_TEXT_DOC_TYPES = (
+    "hn_ask",
+    "hn_show",
+    "reddit_post",
+    "producthunt_post",
+    "stackexchange_question",
+    "github_issue",
+    "app_store_review",
+    "discourse_topic",
+)
+
 
 @dataclass
 class ScoringStats:
@@ -87,17 +102,19 @@ def run_scoring(
     stats = ScoringStats()
 
     opportunities = conn.execute(
-        "SELECT id, primary_strategy, category FROM opportunities "
+        "SELECT id, primary_strategy, category, competitor_match_count FROM opportunities "
         "WHERE status IN ('candidate', 'qualified')"
     ).fetchall()
 
-    for opportunity_id, primary_strategy_value, category in opportunities:
+    for opportunity_id, primary_strategy_value, category, competitor_match_count in opportunities:
         rollup_daily_signal(conn, opportunity_id, today)
         _sync_proof_events(conn, opportunity_id, clock)
         conn.commit()
 
         primary_strategy = DetectionStrategyName(primary_strategy_value)
-        evidence = _assemble_evidence(conn, opportunity_id, primary_strategy, category)
+        evidence = _assemble_evidence(
+            conn, opportunity_id, primary_strategy, category, competitor_match_count
+        )
 
         strategy_eval = STRATEGIES[primary_strategy].evaluate(evidence)
         buildability = evaluate_buildability(evidence)
@@ -176,6 +193,7 @@ def _assemble_evidence(
     opportunity_id: int,
     primary_strategy: DetectionStrategyName,
     category: str | None,
+    competitor_match_count: int | None,
 ) -> CandidateEvidence:
     rows = conn.execute(
         """
@@ -194,7 +212,7 @@ def _assemble_evidence(
     source_domain: str | None = None
 
     for doc_type, title, body, country_code, doc_category, source_url in rows:
-        if doc_type in ("hn_ask", "hn_show", "reddit_post", "producthunt_post"):
+        if doc_type in _PAIN_DRIVEN_TEXT_DOC_TYPES:
             if title:
                 text_parts.append(title)
             if body:
@@ -224,6 +242,7 @@ def _assemble_evidence(
         distinct_source_count=len(rows),
         source_domain=source_domain,
         wikipedia_pageviews_by_project=_load_wikipedia_series(conn, opportunity_id),
+        competitor_match_count=competitor_match_count,
     )
 
 
@@ -270,9 +289,7 @@ def rollup_daily_signal(conn: psycopg.Connection[Any], opportunity_id: int, toda
     row = conn.execute(
         """
         SELECT
-            count(*) FILTER (
-                WHERE rd.doc_type IN ('hn_ask', 'hn_show', 'reddit_post', 'producthunt_post')
-            ) AS mention_count,
+            count(*) FILTER (WHERE rd.doc_type = ANY(%s)) AS mention_count,
             count(*) FILTER (WHERE rd.doc_type = 'edgar_formd') AS edgar_filing_count,
             min((rd.raw_json ->> 'rank')::int) FILTER (WHERE rd.doc_type = 'app_store_ranking')
                 AS app_rank_best
@@ -280,7 +297,7 @@ def rollup_daily_signal(conn: psycopg.Connection[Any], opportunity_id: int, toda
         JOIN raw_documents rd ON rd.id = os.raw_document_id
         WHERE os.opportunity_id = %s AND rd.published_at::date = %s
         """,
-        (opportunity_id, today),
+        (list(_PAIN_DRIVEN_TEXT_DOC_TYPES), opportunity_id, today),
     ).fetchone()
     assert row is not None
     mention_count, edgar_filing_count, app_rank_best = row
@@ -384,7 +401,7 @@ def _sync_proof_events(conn: psycopg.Connection[Any], opportunity_id: int, clock
                 observed_at,
                 {},
             )
-        elif doc_type in ("hn_ask", "hn_show", "reddit_post", "producthunt_post"):
+        elif doc_type in _PAIN_DRIVEN_TEXT_DOC_TYPES:
             text = "\n".join(part for part in (title, body) if part)
             mentions = extract_revenue_mentions(text)
             if mentions:

@@ -39,6 +39,10 @@ _STRATEGY_BY_DOC_TYPE: dict[str, DetectionStrategyName] = {
     "hn_show": DetectionStrategyName.PAIN_DRIVEN,
     "reddit_post": DetectionStrategyName.PAIN_DRIVEN,
     "producthunt_post": DetectionStrategyName.PAIN_DRIVEN,
+    "stackexchange_question": DetectionStrategyName.PAIN_DRIVEN,
+    "github_issue": DetectionStrategyName.PAIN_DRIVEN,
+    "app_store_review": DetectionStrategyName.PAIN_DRIVEN,
+    "discourse_topic": DetectionStrategyName.PAIN_DRIVEN,
     "edgar_formd": DetectionStrategyName.ARBITRAGE,
     "app_store_ranking": DetectionStrategyName.ARBITRAGE,
 }

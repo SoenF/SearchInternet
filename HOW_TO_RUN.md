@@ -95,6 +95,18 @@ publish anything derived from it.
 Same silent-skip-if-blank behavior, and the same `tos_status: "review_needed"`
 caveat as Reddit — see `CLAUDE.md`.
 
+### Stack Exchange and GitHub Issues (always enabled, no credential needed)
+
+Unlike Reddit/Product Hunt, neither API gates access behind a key — both
+connectors are registered unconditionally, like the Phase 1 four.
+
+| Variable | Purpose |
+|---|---|
+| `STACKEXCHANGE_API_KEY` | Optional. Raises the daily quota from 300 to 10,000; get one free at https://stackapps.com/apps/oauth/register. |
+| `STACKEXCHANGE_SITES` | Comma-separated site slugs. Defaults to `softwarerecs` (Software Recommendations — "is there a tool that does X" is its entire premise) if unset. |
+| `GITHUB_TOKEN` | Optional. Raises the search rate limit from 10/min to 30/min; create one at https://github.com/settings/tokens (no scopes needed for public search). |
+| `GITHUB_SEARCH_QUERY` | Defaults to `is:issue is:open label:enhancement` if unset. |
+
 ### Phase 4 — LLM deep-dive (opt-in, the only phase that spends money)
 
 | Variable | Purpose |
@@ -110,17 +122,23 @@ caveat as Reddit — see `CLAUDE.md`.
 ## 4. Phase 1-2: the free daily pipeline
 
 ```bash
-python -m opportunity_engine.cli.main run-daily            # ingest -> dedup -> score -> rank
+python -m opportunity_engine.cli.main run-daily            # ingest -> dedup -> check-competitors -> score -> rank
 ```
 
 Or step by step (useful for debugging a specific stage):
 
 ```bash
-python -m opportunity_engine.cli.main ingest --days 1       # HN, EDGAR, Wikipedia, App Store
+python -m opportunity_engine.cli.main ingest --days 1       # HN, EDGAR, Wikipedia, App Store, Stack Exchange, GitHub Issues
 python -m opportunity_engine.cli.main dedup                 # embed + merge/create opportunities
+python -m opportunity_engine.cli.main check-competitors     # GitHub/npm match count -> vendability warning
 python -m opportunity_engine.cli.main score                 # gates + momentum + market proof + composite
 python -m opportunity_engine.cli.main rank                  # write today's backlog_snapshots
 ```
+
+`check-competitors` only processes opportunities it hasn't checked before
+(`COMPETITOR_CHECK_BATCH_SIZE`, default 50, per run — highest-scored first),
+so a large backlog's first run catches up incrementally over several days
+rather than exhausting GitHub's search rate limit in one go.
 
 Other Phase 1-2 commands:
 

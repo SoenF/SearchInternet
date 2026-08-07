@@ -48,6 +48,7 @@ class EventType(StrEnum):
     OPPORTUNITY_SCORED = "opportunity_scored"
     OPPORTUNITY_PROPOSED = "opportunity_proposed"
     LLM_CALL = "llm_call"  # phase 4: emitted only by agents/deep_dive_agent.py
+    COMPETITOR_CHECKED = "competitor_checked"  # agents/competitor_check_agent.py
     # Reserved for a future phase -- not emitted by any code today: a human
     # explicitly flagging that a past rejection or score was wrong. Phase 5's
     # rejection feedback loop (tools/feedback.py) is automatic, not this.
@@ -78,6 +79,7 @@ class RejectionReason:
     VENDABILITY_NON_RECURRING_MODEL = "vendability:non_recurring_model"
     VENDABILITY_REQUIRES_DAILY_INTERVENTION = "vendability:requires_daily_intervention"
 
-    # Warning-only tag: appears in a GateResult's `reasons` list without
+    # Warning-only tags: appear in a GateResult's `reasons` list without
     # failing the gate. See CLAUDE.md "Known, deliberate limitations".
     VENDABILITY_PERSONAL_BRAND_RISK_WARNING = "vendability:personal_brand_risk"
+    VENDABILITY_COMPETITOR_SATURATION_WARNING = "vendability:competitor_saturation"

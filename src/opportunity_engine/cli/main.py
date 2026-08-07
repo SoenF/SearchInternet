@@ -19,6 +19,7 @@ from typing import Any
 import psycopg
 
 from opportunity_engine.agents.archive_import_agent import run_archive_import
+from opportunity_engine.agents.competitor_check_agent import run_competitor_check
 from opportunity_engine.agents.dedup_agent import run_dedup
 from opportunity_engine.agents.deep_dive_agent import DEFAULT_BUDGET_USD, run_deep_dive
 from opportunity_engine.agents.ingestion_agent import run_ingestion
@@ -157,14 +158,24 @@ def cmd_import_archive(args: argparse.Namespace, settings: Settings) -> None:
     )
 
 
+def cmd_check_competitors(args: argparse.Namespace, settings: Settings) -> None:
+    conn = _connect(settings)
+    stats = run_competitor_check(
+        conn, github_token=settings.github_token, batch_size=settings.competitor_check_batch_size
+    )
+    print(f"checked={stats.checked} saturated={stats.saturated}")
+
+
 def cmd_run_daily(args: argparse.Namespace, settings: Settings) -> None:
-    """The composite command: ingest -> dedup -> score -> rank. Migrations
-    are applied separately (`migrate`), not implicitly here, so a schema
-    change is always a deliberate, visible step."""
+    """The composite command: ingest -> dedup -> check-competitors -> score
+    -> rank. Migrations are applied separately (`migrate`), not implicitly
+    here, so a schema change is always a deliberate, visible step."""
     print("== ingest ==")
     cmd_ingest(args, settings)
     print("== dedup ==")
     cmd_dedup(args, settings)
+    print("== check-competitors ==")
+    cmd_check_competitors(args, settings)
     print("== score ==")
     cmd_score(args, settings)
     print("== rank ==")
@@ -181,6 +192,7 @@ COMMANDS: dict[str, Callable[[argparse.Namespace, Settings], None]] = {
     "sync-connectors": cmd_sync_connectors,
     "deep-dive": cmd_deep_dive,
     "import-archive": cmd_import_archive,
+    "check-competitors": cmd_check_competitors,
     "run-daily": cmd_run_daily,
 }
 
@@ -241,8 +253,13 @@ def build_parser() -> argparse.ArgumentParser:
         help="comma-separated allowlist to filter the dump by (default: import every subreddit)",
     )
 
+    subparsers.add_parser(
+        "check-competitors",
+        help="free, rule-based GitHub/npm competitor-saturation check for unchecked opportunities",
+    )
+
     run_daily_parser = subparsers.add_parser(
-        "run-daily", help="composite: ingest -> dedup -> score -> rank"
+        "run-daily", help="composite: ingest -> dedup -> check-competitors -> score -> rank"
     )
     run_daily_parser.add_argument("--days", type=int, default=1)
 

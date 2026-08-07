@@ -198,6 +198,12 @@ DAILY_INTERVENTION_KEYWORDS = (
 # this produces a warning, never an automatic rejection.
 PERSONAL_BRAND_ONLY_DOMAINS = ("medium.com", "substack.com", "blogspot.com", "wordpress.com")
 
+# Starting point, not a tuned value -- see agents/competitor_check_agent.py.
+# Combined GitHub-repo-search + npm-search total match count above this is a
+# warning, never an automatic rejection: competitors existing can also mean
+# a validated market, not just "don't build this."
+COMPETITOR_SATURATION_WARNING_THRESHOLD = 5
+
 
 def _find_keyword(text: str | None, keywords: tuple[str, ...]) -> str | None:
     lowered = (text or "").lower()
@@ -251,7 +257,10 @@ def evaluate_vendability(evidence: CandidateEvidence) -> GateResult:
     Phase-1 sources: `is_personal_brand_only_source` below only ever adds a
     *warning* to a passing result, never an automatic rejection -- real
     judgment on that dimension is deliberately deferred to Phase 4's LLM
-    deep-dive."""
+    deep-dive. Competitor saturation (GitHub + npm search matches, see
+    agents/competitor_check_agent.py) is a warning for the same reason:
+    competitors existing isn't itself disqualifying, it can just as easily
+    mean a validated market."""
     risk = classify_regulatory_risk(evidence.text, evidence.sic_code, evidence.app_store_genre)
     if risk.regulated:
         return GateResult(
@@ -279,6 +288,11 @@ def evaluate_vendability(evidence: CandidateEvidence) -> GateResult:
     reasons = []
     if is_personal_brand_only_source(evidence.source_domain):
         reasons.append(RejectionReason.VENDABILITY_PERSONAL_BRAND_RISK_WARNING)
+    if (
+        evidence.competitor_match_count is not None
+        and evidence.competitor_match_count > COMPETITOR_SATURATION_WARNING_THRESHOLD
+    ):
+        reasons.append(RejectionReason.VENDABILITY_COMPETITOR_SATURATION_WARNING)
     return GateResult(passed=True, reasons=reasons)
 
 
@@ -299,7 +313,21 @@ def compute_composite_score(momentum: MomentumResult, market_proof_score: float)
     50/50 split is a documented starting point, not a value mandated by the
     spec (which specifies momentum and market proof as "weighted" without a
     fixed ratio) -- tune the two COMPOSITE_*_WEIGHT constants once real
-    production data suggests a better split."""
+    production data suggests a better split.
+
+    A brand-new opportunity with `insufficient_history` momentum skips the
+    blend entirely and scores on market proof alone, rather than having its
+    momentum contribution silently floored at 0 and its composite score
+    structurally capped at COMPOSITE_MARKET_PROOF_WEIGHT of what a
+    proof-equivalent, already-established opportunity could reach. A
+    genuinely great, well-evidenced idea shouldn't have to wait weeks of
+    daily ingestion to accumulate a momentum baseline before it can rank
+    highly -- momentum still matters once real history exists (an
+    opportunity actively growing should outrank an identical flat one), but
+    "we don't know yet" is not the same claim as "no growth", and must not
+    be scored as if it were."""
+    if momentum.confidence == MomentumConfidence.INSUFFICIENT_HISTORY:
+        return market_proof_score
     return (
         momentum.score * COMPOSITE_MOMENTUM_WEIGHT
         + market_proof_score * COMPOSITE_MARKET_PROOF_WEIGHT

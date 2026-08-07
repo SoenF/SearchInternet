@@ -21,6 +21,7 @@ from opportunity_engine.cli.main import COMMANDS, build_parser
         ["deep-dive", "42", "--escalate", "--reason", "Haiku missed the regulatory angle"],
         ["import-archive", "/tmp/dump.jsonl"],
         ["import-archive", "/tmp/dump.zst", "--subreddits", "SaaS,Entrepreneur"],
+        ["check-competitors"],
         ["run-daily"],
     ],
 )
@@ -50,5 +51,6 @@ def test_every_documented_command_has_a_handler() -> None:
         "sync-connectors",
         "deep-dive",
         "import-archive",
+        "check-competitors",
         "run-daily",
     }

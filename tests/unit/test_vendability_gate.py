@@ -65,3 +65,23 @@ def test_distinct_product_domain_has_no_personal_brand_warning() -> None:
     result = evaluate_vendability(_evidence(source_domain="chatmcp.pro"))
     assert result.passed
     assert result.reasons == []
+
+
+def test_high_competitor_match_count_passes_with_a_warning_not_a_rejection() -> None:
+    """Competitors existing isn't itself disqualifying -- it can just as
+    easily mean a validated market -- so this must never auto-reject."""
+    result = evaluate_vendability(_evidence(competitor_match_count=6))
+    assert result.passed
+    assert result.reasons == [RejectionReason.VENDABILITY_COMPETITOR_SATURATION_WARNING]
+
+
+def test_low_competitor_match_count_has_no_saturation_warning() -> None:
+    result = evaluate_vendability(_evidence(competitor_match_count=5))
+    assert result.passed
+    assert result.reasons == []
+
+
+def test_unchecked_competitor_count_has_no_saturation_warning() -> None:
+    result = evaluate_vendability(_evidence(competitor_match_count=None))
+    assert result.passed
+    assert result.reasons == []

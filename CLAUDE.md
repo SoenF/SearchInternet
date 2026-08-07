@@ -35,6 +35,49 @@ All five phases from the original spec are now implemented:
   passive: a candidate whose embedding sits near a previously rejected
   opportunity's centroid gets a soft score penalty. No command to run.
 
+Beyond the original 5 phases, two more always-on connectors were added on a
+real, current, explicitly-stated need (see "Out of scope" below for the
+general rule this satisfies an exception to):
+- **`collectors/stackexchange.py`** — Stack Exchange Questions API, default
+  site `softwarerecs` ("is there a tool that does X" is its entire premise).
+  No credential required; `STACKEXCHANGE_API_KEY` only raises the daily quota.
+- **`collectors/github_issues.py`** — GitHub Search Issues API, default
+  query `is:issue is:open label:enhancement`. No credential required;
+  `GITHUB_TOKEN` only raises the search rate limit.
+
+Both are registered unconditionally in `collectors/registry.py` (like the
+Phase 1 four), not opt-in-via-credential like Reddit/Product Hunt, since
+neither API gates access behind a key.
+
+Two more, on the same basis, address a real gap: every source above skews
+toward a developer audience, so nothing surfaced non-technical pain points
+(legal, accounting, real estate, housing) at all.
+- **`collectors/app_store_reviews.py`** — iTunes RSS customer reviews for
+  apps charting in Finance/Business/Lifestyle genres (verified live: Zillow
+  Real Estate & Rentals charts in Lifestyle, ADP Mobile Solutions in
+  Business) — reviews on an already-monetizing consumer app, from a
+  non-developer audience. No credential required.
+- **`collectors/discourse_forums.py`** — public topics from Discourse-based
+  no-code/small-business tool communities (default: `forum.bubble.io`,
+  `community.make.com`), via Discourse's own documented no-auth `.json` API.
+  Reaches small-business/no-code builders who already pay for a SaaS tool.
+  No credential required; not every Discourse community responds cleanly to
+  a plain JSON GET (Cloudflare, redirects) — see the module docstring before
+  adding more via `DISCOURSE_FORUMS`.
+
+Also added on the same explicit-need basis: **`agents/competitor_check_agent.py`**
+— zero-LLM competitor-saturation signal. For each opportunity (once, not
+re-checked daily), searches GitHub repos + npm packages by title keywords and
+stores a total match count + top matches. Feeds `evaluate_vendability` a
+warning (`RejectionReason.VENDABILITY_COMPETITOR_SATURATION_WARNING`), never
+a rejection — competitors existing can also mean a validated market. Runs in
+the free daily pipeline (`check-competitors`, wired into `run-daily` between
+`dedup` and `score`) since both APIs are free and uncredentialed, same as
+Stack Exchange/GitHub Issues above. Reuses `GITHUB_TOKEN`. Detects developer-
+tool-shaped competitors well; a consumer app or service with no GitHub/npm
+footprint is a documented blind spot, same honest-limitation pattern as the
+personal-brand-risk warning.
+
 See `HOW_TO_RUN.md` for the full operational guide (setup, every CLI command,
 credentials, cost expectations, a realistic weekly workflow). This file stays
 focused on architecture and rules.
@@ -116,7 +159,8 @@ src/opportunity_engine/
   domain/              pure dataclasses/enums shared across the codebase
   collectors/          one Collector implementation per data source: hackernews,
                         edgar, wikipedia_pageviews, app_store (Phase 1), reddit,
-                        producthunt (Phase 3, both opt-in)
+                        producthunt (Phase 3, both opt-in), stackexchange,
+                        github_issues (always enabled, no credential needed)
   tools/                pure functions: parsing (one module per source format),
                         scoring, dedup, clustering, ranking, storage, feedback
                         (Phase 5 rejection-penalty math)
@@ -124,9 +168,11 @@ src/opportunity_engine/
   providers/            LLMProvider (NoOpLLMProvider, AnthropicProvider),
                         EmbeddingProvider (LocalE5EmbeddingProvider)
   agents/               ingestion / dedup / scoring / ranking / deep_dive /
-                        archive_import — DB + events only, never call each other
+                        archive_import / competitor_check — DB + events only,
+                        never call each other
   cli/main.py           migrate | ingest | dedup | score | rank | track-topic |
-                        sync-connectors | deep-dive | import-archive | run-daily
+                        sync-connectors | deep-dive | import-archive |
+                        check-competitors | run-daily
 scripts/                manual/ops tooling, never imported by the app or run in CI
 tests/                  unit/ (pure), connectors/ (fixture-driven), integration/
                         (gated on OPPORTUNITY_ENGINE_TEST_DATABASE_URL)
@@ -232,6 +278,16 @@ genre categories) because Phase 1-2 makes zero LLM calls. In particular:
   bugs. Don't "fix" them by inventing more brittle keyword rules without that
   context — extend them only if a concrete false-positive/negative is found in
   real data.
+- `tools/scoring_tools.py:compute_composite_score` skips the momentum/market-
+  proof blend entirely for `insufficient_history` opportunities, scoring on
+  market proof alone instead of diluting it by `COMPOSITE_MARKET_PROOF_WEIGHT`
+  (fixed 2026-08-07). The project's model is a SaaS factory that ships fast
+  and needs to reach MRR quickly — a well-evidenced, brand-new opportunity
+  must not be structurally capped at half its market-proof score just
+  because it hasn't yet accumulated `MOMENTUM_MIN_BASELINE_DAYS` of daily
+  history; "we don't know its momentum yet" is not the same claim as "it has
+  no momentum," and the two must not score the same. Momentum still applies
+  its full weight once real history exists.
 
 ## Environment variables
 
@@ -286,10 +342,12 @@ in particular:
   deliberately a single on-demand call per `deep-dive` invocation, not a
   bulk-dossier-generation feature. Building that without being asked is the
   over-design this project's owner has explicitly ruled out.
-- No Product Hunt/Reddit-equivalent connectors beyond what's built, no
-  additional DetectionStrategy beyond `pain_driven`/`arbitrage`, no new
-  sanctioned interface beyond the four in rule #5, unless a real, current
-  need is stated.
+- No further connectors or signal-check agents beyond what's built (Stack
+  Exchange, GitHub Issues, App Store reviews, Discourse forums, and the
+  competitor-saturation check were all added 2026-08-07 on exactly this kind
+  of real, current, explicitly-stated need), no additional DetectionStrategy
+  beyond `pain_driven`/`arbitrage`, no new sanctioned interface beyond the
+  four in rule #5, unless a real, current need is stated again.
 - The later portfolio-pipeline components (Validation Engine, SaaS
   Generator, Marketing OS, Analytics Engine, Portfolio Manager, Exit
   Manager) remain out of scope entirely — this codebase only owes them the

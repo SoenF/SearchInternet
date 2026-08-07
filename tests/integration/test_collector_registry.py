@@ -5,11 +5,15 @@ from typing import Any
 import psycopg
 
 from opportunity_engine.collectors.app_store import AppStoreCollector
+from opportunity_engine.collectors.app_store_reviews import AppStoreReviewsCollector
+from opportunity_engine.collectors.discourse_forums import DiscourseForumsCollector
 from opportunity_engine.collectors.edgar import EdgarFormDCollector
+from opportunity_engine.collectors.github_issues import GitHubIssuesCollector
 from opportunity_engine.collectors.hackernews import HackerNewsCollector
 from opportunity_engine.collectors.producthunt import ProductHuntCollector
 from opportunity_engine.collectors.reddit import RedditCollector
 from opportunity_engine.collectors.registry import build_enabled_collectors
+from opportunity_engine.collectors.stackexchange import StackExchangeCollector
 from opportunity_engine.collectors.wikipedia_pageviews import WikipediaPageviewsCollector
 from opportunity_engine.config import Settings
 
@@ -24,11 +28,11 @@ def _settings(**overrides: Any) -> Settings:
     return Settings(**defaults)
 
 
-def test_build_enabled_collectors_returns_all_four_by_default(
+def test_build_enabled_collectors_returns_all_eight_by_default(
     db_conn: psycopg.Connection[Any],
 ) -> None:
-    # Reddit is opt-in (needs REDDIT_CLIENT_ID) and isn't among these four --
-    # see test_reddit_is_included_once_credentials_are_configured below.
+    # Reddit and Product Hunt are opt-in (need credentials) and aren't among
+    # these eight -- see their own "is_included_once_configured" tests below.
     collectors = build_enabled_collectors(_settings(), db_conn)
     types = {type(c) for c in collectors}
     assert types == {
@@ -36,6 +40,10 @@ def test_build_enabled_collectors_returns_all_four_by_default(
         EdgarFormDCollector,
         WikipediaPageviewsCollector,
         AppStoreCollector,
+        AppStoreReviewsCollector,
+        StackExchangeCollector,
+        GitHubIssuesCollector,
+        DiscourseForumsCollector,
     }
 
 
@@ -44,7 +52,7 @@ def test_disabled_connectors_are_excluded(db_conn: psycopg.Connection[Any]) -> N
     collectors = build_enabled_collectors(settings, db_conn)
     types = {type(c) for c in collectors}
     assert EdgarFormDCollector not in types
-    assert len(collectors) == 3
+    assert len(collectors) == 7
 
 
 def test_reddit_is_skipped_without_credentials(db_conn: psycopg.Connection[Any]) -> None:

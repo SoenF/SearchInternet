@@ -19,6 +19,9 @@ def _split_csv(value: str) -> frozenset[str]:
 DEFAULT_REDDIT_SUBREDDITS: frozenset[str] = frozenset(
     {"SaaS", "Entrepreneur", "smallbusiness", "SideProject"}
 )
+DEFAULT_STACKEXCHANGE_SITES: frozenset[str] = frozenset({"softwarerecs"})
+DEFAULT_GITHUB_SEARCH_QUERY = "is:issue is:open label:enhancement"
+DEFAULT_DISCOURSE_FORUMS: tuple[str, ...] = ("forum.bubble.io", "community.make.com")
 
 
 @dataclass(frozen=True)
@@ -59,6 +62,28 @@ class Settings:
     # Product Hunt is opt-in the same way: registry.py skips it when this is
     # empty, since every request needs a token (no anonymous tier at all).
     producthunt_access_token: str = ""
+
+    # Stack Exchange and GitHub Issues need no credential at all -- unlike
+    # Reddit/Product Hunt, they're always enabled (like the Phase 1 four),
+    # not opt-in. A key/token only raises the rate limit, it doesn't gate
+    # access.
+    stackexchange_api_key: str = ""
+    stackexchange_sites: frozenset[str] = field(default_factory=lambda: DEFAULT_STACKEXCHANGE_SITES)
+    github_token: str = ""
+    github_search_query: str = DEFAULT_GITHUB_SEARCH_QUERY
+
+    # Competitor-saturation check (agents/competitor_check_agent.py) reuses
+    # github_token above -- same API, no separate credential needed. Batched
+    # per run since GitHub search is rate-limited; a large backlog's first
+    # run gets picked up incrementally over several days, not all at once.
+    competitor_check_batch_size: int = 50
+
+    # Discourse forums connector needs no credential either -- Discourse's
+    # `.json` API is public and documented. Not every Discourse community
+    # responds cleanly to a plain GET (Cloudflare, redirects); see
+    # collectors/discourse_forums.py's module docstring for what was
+    # verified working vs. not.
+    discourse_forums: tuple[str, ...] = DEFAULT_DISCOURSE_FORUMS
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -107,6 +132,26 @@ class Settings:
                 else DEFAULT_REDDIT_SUBREDDITS
             ),
             producthunt_access_token=os.environ.get("PRODUCTHUNT_ACCESS_TOKEN", ""),
+            stackexchange_api_key=os.environ.get("STACKEXCHANGE_API_KEY", ""),
+            stackexchange_sites=(
+                _split_csv(os.environ["STACKEXCHANGE_SITES"])
+                if os.environ.get("STACKEXCHANGE_SITES")
+                else DEFAULT_STACKEXCHANGE_SITES
+            ),
+            github_token=os.environ.get("GITHUB_TOKEN", ""),
+            github_search_query=os.environ.get("GITHUB_SEARCH_QUERY", DEFAULT_GITHUB_SEARCH_QUERY),
+            competitor_check_batch_size=int(
+                os.environ.get("COMPETITOR_CHECK_BATCH_SIZE", cls.competitor_check_batch_size)
+            ),
+            discourse_forums=(
+                tuple(
+                    item.strip()
+                    for item in os.environ["DISCOURSE_FORUMS"].split(",")
+                    if item.strip()
+                )
+                if os.environ.get("DISCOURSE_FORUMS")
+                else DEFAULT_DISCOURSE_FORUMS
+            ),
         )
 
 

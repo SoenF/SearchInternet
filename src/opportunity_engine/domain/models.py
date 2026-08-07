@@ -101,6 +101,10 @@ class CandidateEvidence:
     wikipedia_pageviews_by_project: dict[str, list[DailyValue]] = field(default_factory=dict)
     distinct_source_count: int = 1
     source_domain: str | None = None
+    # GitHub repo search + npm registry search match count (see
+    # agents/competitor_check_agent.py) -- None means not checked yet,
+    # distinct from 0 (checked, found nothing).
+    competitor_match_count: int | None = None
 
 
 @dataclass(frozen=True)
