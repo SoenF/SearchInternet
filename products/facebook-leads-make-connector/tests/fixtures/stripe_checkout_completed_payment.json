@@ -1,0 +1,19 @@
+{
+  "id": "evt_1PaymentExample",
+  "object": "event",
+  "type": "checkout.session.completed",
+  "data": {
+    "object": {
+      "id": "cs_test_payment123",
+      "object": "checkout.session",
+      "mode": "payment",
+      "customer": "cus_payment123",
+      "customer_details": {
+        "email": "buyer@example.com",
+        "name": "Alex Buyer"
+      },
+      "amount_total": 12900,
+      "currency": "usd"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "evt_1SubscriptionDeleted",
+  "object": "event",
+  "type": "customer.subscription.deleted",
+  "data": {
+    "object": {
+      "id": "sub_subscriber123",
+      "object": "subscription",
+      "customer": "cus_subscriber123",
+      "status": "canceled"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "evt_1SubscriptionExample",
+  "object": "event",
+  "type": "checkout.session.completed",
+  "data": {
+    "object": {
+      "id": "cs_test_subscription123",
+      "object": "checkout.session",
+      "mode": "subscription",
+      "customer": "cus_subscriber123",
+      "customer_details": {
+        "email": "subscriber@example.com",
+        "name": "Sam Subscriber"
+      }
+    }
+  }
+}

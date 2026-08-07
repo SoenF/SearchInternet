@@ -11,13 +11,15 @@ import respx
 from fastapi.testclient import TestClient
 
 import leadbridge.main as main_module
-from leadbridge.dedup import in_memory_store
+from leadbridge.dedup import in_memory_store as dedup_in_memory_store
+from leadbridge.tenants import in_memory_store as tenants_in_memory_store
 
 FIXTURES = Path(__file__).parent / "fixtures"
 APP_SECRET = "test_app_secret"
 VERIFY_TOKEN = "test_verify_token"
 MAKE_URL = "https://hook.us1.make.com/fake-webhook-id"
 API_VERSION = "v21.0"
+PAGE_ID = "112233445566"
 
 
 def _load(name: str) -> dict:
@@ -35,10 +37,11 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
     monkeypatch.setenv("FB_WEBHOOK_VERIFY_TOKEN", VERIFY_TOKEN)
     monkeypatch.setenv("MAKE_WEBHOOK_URL", MAKE_URL)
     monkeypatch.setenv("GRAPH_API_VERSION", API_VERSION)
-    # Reset module-level caches so each test gets fresh Settings/DedupStore
-    # built from this test's env vars, not a previous test's.
+    # Reset module-level caches so each test gets fresh Settings/DedupStore/
+    # TenantStore built from this test's env vars, not a previous test's.
     main_module._settings = None
-    main_module._dedup = in_memory_store()
+    main_module._dedup = dedup_in_memory_store()
+    main_module._tenants = tenants_in_memory_store()
     return TestClient(main_module.app)
 
 
@@ -130,4 +133,60 @@ def test_lead_retrieval_failure_is_logged_and_skipped_not_a_500(client: TestClie
     )
 
     assert response.status_code == 200
+    assert response.json() == {"status": "ok", "processed": "0"}
+
+
+@respx.mock
+def test_lead_for_a_known_active_tenant_uses_the_tenants_own_config(client: TestClient) -> None:
+    """The core dual-monetization behavior: when the incoming lead's page_id
+    matches a hosted subscriber, use THAT tenant's token/webhook, not the
+    single-tenant env-var fallback -- proves both models can run off one
+    deployment without leaking one customer's config into another's."""
+    tenant_make_url = "https://hook.us1.make.com/tenant-specific-webhook"
+    main_module._tenants.upsert_tenant(
+        page_id=PAGE_ID,
+        fb_page_access_token="tenant-specific-token",
+        make_webhook_url=tenant_make_url,
+        stripe_customer_id="cus_tenant1",
+        created_at="2026-08-07T00:00:00Z",
+    )
+    respx.get(f"https://graph.facebook.com/{API_VERSION}/1930628924301148").mock(
+        return_value=httpx.Response(200, json=_load("graph_lead_response_simple_form.json"))
+    )
+    tenant_route = respx.post(tenant_make_url).mock(
+        return_value=httpx.Response(200, json={"ok": True})
+    )
+    global_route = respx.post(MAKE_URL).mock(return_value=httpx.Response(200, json={"ok": True}))
+
+    body_bytes = json.dumps(_load("webhook_leadgen_notification.json")).encode()
+    response = client.post(
+        "/webhook",
+        content=body_bytes,
+        headers={"content-type": "application/json", "x-hub-signature-256": _sign(body_bytes)},
+    )
+
+    assert response.json() == {"status": "ok", "processed": "1"}
+    assert tenant_route.called
+    assert not global_route.called
+
+
+def test_lead_for_an_inactive_tenant_is_skipped_without_calling_graph_api(
+    client: TestClient,
+) -> None:
+    main_module._tenants.upsert_tenant(
+        page_id=PAGE_ID,
+        fb_page_access_token="tenant-specific-token",
+        make_webhook_url="https://hook.us1.make.com/tenant-specific-webhook",
+        stripe_customer_id="cus_tenant1",
+        created_at="2026-08-07T00:00:00Z",
+    )
+    main_module._tenants.deactivate_by_customer_id("cus_tenant1")
+
+    body_bytes = json.dumps(_load("webhook_leadgen_notification.json")).encode()
+    response = client.post(
+        "/webhook",
+        content=body_bytes,
+        headers={"content-type": "application/json", "x-hub-signature-256": _sign(body_bytes)},
+    )
+
     assert response.json() == {"status": "ok", "processed": "0"}

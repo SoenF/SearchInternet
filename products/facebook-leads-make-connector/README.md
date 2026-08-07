@@ -30,10 +30,23 @@ convenient monorepo location — different dependencies, different tests, differ
   problem 2), normalizes arbitrary per-form field names into one predictable
   schema (fixes problem 1), dedupes, and forwards one clean JSON payload to a
   single Make custom-webhook trigger.
-- `docs/SETUP.md` — Facebook App/Page/token setup, deploy, Make scenario wiring.
+- **Two monetization models, one deployment** (see `docs/SETUP.md` §6):
+  sell the source once (`/stripe/webhook` emails a signed download link), or
+  run it as a hosted subscription (`tenants.py` keys per-customer config by
+  Facebook Page ID; a new subscription emails a signed `/setup` link instead
+  of code). The webhook handler checks for a tenant record first, falling
+  back to the single-tenant env-var config when none matches — so a
+  self-hosted buyer's copy and a hosted multi-tenant deployment run the
+  exact same code path. **The subscription model needs Meta App Review
+  (Advanced Access) before it works for any Page you don't personally
+  administer** — see `docs/SETUP.md` §1's callout, a real administrative
+  gate, not a code problem.
+- `docs/SETUP.md` — Facebook App/Page/token setup, deploy, Make scenario
+  wiring, both monetization paths, and a layered local-testing recipe.
 - `docs/make_blueprint_spec.md` — exact module-by-module spec for the one
   downstream Make scenario (Custom Webhook → Router → Airtable/Outlook/Gmail).
-- `landing/index.html` — draft sales page copy, unpublished.
+- `docs/EXPLICATION_FR.md` — plain-language explanation of the whole project, in French.
+- `landing/index.html` + `landing/thank-you.html` — draft sales page copy, unpublished.
 
 ## What is NOT done, and needs a real account to finish
 
@@ -50,7 +63,7 @@ these were created on your behalf; none require code changes to set up.
 cd products/facebook-leads-make-connector
 python3.12 -m venv .venv
 .venv/bin/pip install -e ".[dev]"
-cp .env.example .env   # fill in FB_APP_SECRET, FB_PAGE_ACCESS_TOKEN, FB_WEBHOOK_VERIFY_TOKEN, MAKE_WEBHOOK_URL
+cp .env.example .env   # fill in at least FB_APP_SECRET + FB_WEBHOOK_VERIFY_TOKEN; see .env.example for the rest
 .venv/bin/pytest -q
 .venv/bin/uvicorn leadbridge.main:app --reload
 ```
